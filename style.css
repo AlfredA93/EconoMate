@@ -1,6 +1,6 @@
 :root {
     --primary-color: #1F8275;
-    --secondary-color: #9CAF56;
+    --secondary-color: #63bbfffc;
     --accent-color: #EDB957;
     --text-color: #2F4858;
     --white-color: #DFE0DF;
@@ -50,7 +50,7 @@ main{
     display: flex;
     margin-top: 1rem;
     flex-wrap: wrap;
-    width: 100%;
+    width: 66%;
     background-color: var(--secondary-color);
     border-radius: 10px;
     margin-top: 1rem;
@@ -58,58 +58,97 @@ main{
     color: var(--text-color);
 }
 .toggle{
-    width: 20%;
+    width: 18%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-/* Slider */
-.sliderContainer {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: var(--white-color);
+    margin: 0.4rem;
+    border-radius: 10px;
+    box-shadow: -4px 4px 0px rgba(28,101,112,1);
+    text-align: center;
+    padding: 2px;
 }
 
 .slider {
     -webkit-appearance: none;
-    width: 50px; /* Specifying a width */
-    height: 150px; /* Specifying a height makes it a horizontal slider */
-    background: #d3d3d3;
+    width: 100px; /* Now this is the height */
+    height: 40px; /* Now this is the width */
+    background: var(--text-color);
     outline: none;
-    opacity: 0.7;
+    opacity: 1;
     -webkit-transition: .2s;
     transition: opacity .2s;
-    writing-mode: bt-lr; /* IE */
-    -webkit-appearance: slider-vertical; /* WebKit */
-    writing-mode: sideways-lr; /* Standards */
+    transform: rotate(90deg) scaleX(-1); /* Rotate and flip the slider */
+    margin-bottom: 20px;
+    margin-top: 40px;
+    border-radius: 10px;
 }
 
-.slider:hover {
-    opacity: 1;
-}
+
 
 .slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
+    -webkit-appearance: none; /* Important: remove default styles */
     appearance: none;
     width: 25px;
-    height: 25px;
-    background: #4CAF50;
+    height: 50px;
+    background: var(--accent-color); /* Change the color */
+    border-radius: 10px; /* Make it circular */
     cursor: pointer;
+    box-shadow: -4px 4px 0px rgba(28,101,112,1);
 }
-
 .slider::-moz-range-thumb {
     width: 25px;
     height: 25px;
     background: #4CAF50;
     cursor: pointer;
 }
-
 .text-shadow{
     text-shadow: 0px 9px 0px rgba(28,101,112,0.75);  ;
 }
 .containerShadow{
-    box-shadow: 4px 4px 0px rgba(28,101,112,1);
+    box-shadow: -4px 4px 0px rgba(28,101,112,1);
+}
+
+.displayAmount {
+    /* Existing styles */
+    width: 50%;
+    text-align: center;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    font-family: 'Lexend', sans-serif;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    /* New styles to remove the arrow */
+    -webkit-appearance: none; /* For Chrome and Safari */
+    -moz-appearance: textfield; /* For Firefox */
+}
+
+/* For IE and Edge */
+.displayAmount::-webkit-outer-spin-button,
+.displayAmount::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.lockButton{
+    width: 30px;
+    height: 30px;
+    background: var(--secondary-color);
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    
+}
+.fa-lock{
+    color: var(--text-color);
+    font-size: 1.5rem;
+
+}
+.fa-unlock{
+    color: var(--accent-color);
+    font-size: 1.3rem;
+
 }
