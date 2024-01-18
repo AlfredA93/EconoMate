@@ -3,21 +3,11 @@
 let myConfig = { // This is
     type: 'pie',
     title: {
-      text: 'Data Basics',
+      text: 'Budget Breakdown',
       fontSize: 24,
     },
     legend: {
       draggable: true,
-    },
-    scaleX: {
-      // Set scale label
-      label: { text: 'Days' },
-      // Convert text on scale indices
-      labels: [ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ]
-    },
-    scaleY: {
-      // Scale label with unicode character
-      label: { text: 'Temperature (°F)' }
     },
     plot: {
       // Animation docs here:
@@ -29,21 +19,18 @@ let myConfig = { // This is
         speed: 275,
       }
     },
-    series: [
+    series: [ // Category data to be shown
       {
-        // plot 1 values, linear data
-        values: [23,20,27,29,25,17,15],
-        text: 'Week 1',
+        values: [23],
+        text: 'Food',
       },
       {
-        // plot 2 values, linear data
-        values: [35,42,33,49,35,47,35],
-        text: 'Week 2'
+        values: [35],
+        text: 'Groceries'
       },
       {
-        // plot 2 values, linear data
-        values: [15,22,13,33,44,27,31],
-        text: 'Week 3'
+        values: [65],
+        text: 'Rent'
       }
     ]
   };
