@@ -7,73 +7,63 @@ const totalBudgetInput = document.querySelector('#totalBudget');
 function calculateTotal() {
     let total = 0;
     sliders.forEach(slider => {
-        if (!slider.isLocked) {
-            total += Number(slider.value);
-        }
+        total += Number(slider.value);
     });
     return total;
 }
+// Add a click event listener to each lock button
+lockButtons.forEach((lockButton, index) => {
+    lockButton.addEventListener('click', function() {
+        // Toggle the locked state of the slider
+        this.classList.toggle('locked');
+        sliders[index].disabled = this.classList.contains('locked');
 
-// Function to calculate the total locked amount
-function calculateLockedAmount() {
-    let total = 0;
-    sliders.forEach(slider => {
-        if (slider.isLocked) {
-            total += slider.lockedAmount;
+        // If the slider is locked, subtract its value from the total budget
+        if (this.classList.contains('locked')) {
+            totalBudgetInput.value -= sliders[index].value / 100 * totalBudgetInput.value;
+        } else { // If the slider is unlocked, add its value back to the total budget
+            totalBudgetInput.value = Number(totalBudgetInput.value) + (sliders[index].value / 100 * totalBudgetInput.value);
         }
     });
-    return total;
-}
+});
 
-// Add an input event listener to each slider
 // Add an input event listener to each slider
 sliders.forEach(slider => {
     slider.addEventListener('input', function() {
         let totalBudget = Number(totalBudgetInput.value);
-        let totalLockedAmount = calculateLockedAmount();
-        let remainingBudget = totalBudget - totalLockedAmount;
         let total = calculateTotal();
         let excess = total - 100;
-        let decreasePerSlider = excess / (sliders.length - 1);
 
-        // Decrease the value of the other sliders proportionally
-        sliders.forEach(otherSlider => {
-            if (otherSlider !== this && !otherSlider.isLocked) {
-                otherSlider.value = Math.max(0, otherSlider.value - decreasePerSlider);
-            }
-        });
-
-        // Calculate the amount of money allocated to each slider
-        sliders.forEach(slider => {
-            let amount;
-            if (slider.isLocked) {
-                amount = slider.lockedAmount; // Use the locked amount if the slider is locked
-            } else {
-                if (slider.value === slider.max) {
-                    // If the slider is at its maximum value, set its amount to the remaining budget
-                    amount = remainingBudget;
-                } else {
-                    amount = (slider.value / 100) * remainingBudget;
+        // If the total exceeds 100, decrease the value of the other sliders
+        if (excess > 0) {
+            let totalOtherSliders = total - this.value;
+            sliders.forEach(otherSlider => {
+                if (otherSlider !== this && !otherSlider.disabled) {
+                    let proportion = otherSlider.value / totalOtherSliders;
+                    otherSlider.value = (otherSlider.value - excess * proportion).toFixed(2);
                 }
-            }
-            let displayAmount = slider.parentElement.querySelector('.displayAmount');
-            displayAmount.textContent = `Amount: ${amount.toFixed(2)}`;
-        });
-    });
-});
-// Add a click event listener to each lock button
-
-lockButtons.forEach((button, index) => {
-    button.addEventListener('click', function() {
-        let slider = sliders[index];
-        slider.isLocked = !slider.isLocked; // Toggle the locked state of the slider
-        if (slider.isLocked) {
-            // Store the locked amount when the slider is locked
-            slider.lockedAmount = (slider.value / 100) * Number(totalBudgetInput.value);
-        } else {
-            // Reset the locked amount when the slider is unlocked
-            slider.lockedAmount = 0;
+            });
+        } else if (excess < 0) { // If the total is less than 100, increase the value of the other sliders
+            let totalOtherSliders = total - this.value;
+            sliders.forEach(otherSlider => {
+                if (otherSlider !== this && !otherSlider.disabled) {
+                    let proportion = otherSlider.value / totalOtherSliders;
+                    otherSlider.value = (otherSlider.value - excess * proportion).toFixed(2);
+                }
+            });
         }
-        this.textContent = slider.isLocked ? 'Unlock' : 'Lock'; // Update the button text
+
+        // Display the value for each slider based on its percentage of the total budget
+        sliders.forEach(slider => {
+            let displayAmount = slider.nextElementSibling;
+            displayAmount.textContent = (slider.value / 100 * totalBudget).toFixed(2);
+        });
+
+        // Calculate and log the sum of the values of all sliders
+        let sum = 0;
+        sliders.forEach(slider => {
+            sum += Number(slider.value) / 100 * totalBudget;
+        });
+        console.log(sum.toFixed(2));
     });
 });
