@@ -6,7 +6,7 @@ export function calculateTotal(unlockedSliders) {
     return total;
 }
 
-export function toggleLock(lockButton, index, allSliders, unlockedSliders, lockedSliders, totalBudgetInput) {
+export function toggleLock(lockButton, index, allSliders, unlockedSliders, lockedSliders, totalBudgetInput,originalTotalBudget) {
     lockButton.classList.toggle('locked');
     allSliders[index].disabled = lockButton.classList.contains('locked');
 
@@ -40,6 +40,8 @@ export function toggleLock(lockButton, index, allSliders, unlockedSliders, locke
             allSliders[index].subtractedAmount = subtractedAmount;
             totalBudget -= subtractedAmount;
         }
+
+        console.log('Original total budget after locking:', originalTotalBudget.value);
     } else {
         icon.classList.remove('fa-lock');
         icon.classList.add('fa-unlock');
@@ -49,12 +51,14 @@ export function toggleLock(lockButton, index, allSliders, unlockedSliders, locke
             unlockedSliders.push(allSliders[index]);
             totalBudget += allSliders[index].subtractedAmount;
         }
+
+        console.log('Original total budget after unlocking:', originalTotalBudget.value);
     }
 
     totalBudgetInput.value = totalBudget.toFixed(2);
     allSliders[index].dispatchEvent(new Event('input'));
 }
-export function adjustSliders(slider, unlockedSliders, totalBudgetInput) {
+export function adjustSliders(slider, unlockedSliders, totalBudgetInput, originalTotalBudget) {
     let totalBudget = Number(totalBudgetInput.value);
     let total = calculateTotal(unlockedSliders);
     let excess = total - 100;
@@ -76,37 +80,25 @@ export function adjustSliders(slider, unlockedSliders, totalBudgetInput) {
             }
         });
     }
+
+    console.log('Original total budget after adjusting sliders:', originalTotalBudget.value);
 }
-
-export function displaySliderValues(allSliders, totalBudgetInput, percentagesParagraph) {
+export function displaySliderValues(allSliders, totalBudgetInput, originalTotalBudget, percentagesParagraph) {
     let totalBudget = Number(totalBudgetInput.value);
-    let totalSliderValue = 0;
     let percentages = [];
-
-    // Calculate the total value of all sliders
-    allSliders.forEach(slider => {
-        totalSliderValue += Number(slider.value);
-    });
 
     allSliders.forEach(slider => {
         let displayAmount = slider.parentElement.querySelector('.displayAmount');
         if (!slider.disabled) {
-            // Calculate the percentage of the slider
-            let percentage = (slider.value / totalSliderValue) * 100;
-            // Add the percentage to the array
-            percentages.push(percentage.toFixed(2));
-            // Calculate the amount for the displayAmount input
+            console.log('Original total budget when displaying values:', originalTotalBudget.value);
             let amount = (slider.value / 100 * totalBudget).toFixed(2);
-            // Use the value property to set the value of the displayAmount input
             displayAmount.value = amount;
         } else {
-            // Use the value property to set the value of the displayAmount input
             displayAmount.value = slider.lockedDisplayAmount;
-            // Add the locked value to the array
-            percentages.push(slider.lockedDisplayAmount);
+            let percentage = (Number(slider.lockedDisplayAmount) / Number(originalTotalBudget.value) * 100);
+            percentages.push(percentage.toFixed(2));
         }
     });
 
-    // Update the text content of the percentages paragraph
     percentagesParagraph.textContent = percentages.join(', ');
 }

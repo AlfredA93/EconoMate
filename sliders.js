@@ -7,16 +7,22 @@ let percentagesParagraph = document.querySelector('.percentages');
 let unlockedSliders = [...allSliders];
 let lockedSliders = [];
 
+let originalTotalBudget = { value: Number(totalBudgetInput.value) };
+
+totalBudgetInput.addEventListener('change', function() {
+    originalTotalBudget.value = Number(this.value);
+});
+
 lockButtons.forEach((lockButton, index) => {
     lockButton.addEventListener('click', function() {
-        toggleLock(this, index, allSliders, unlockedSliders, lockedSliders, totalBudgetInput);
+        toggleLock(this, index, allSliders, unlockedSliders, lockedSliders, totalBudgetInput,originalTotalBudget);
     });
 });
 
 allSliders.forEach((slider, index) => {
     slider.addEventListener('input', function() {
-        adjustSliders(this, unlockedSliders, totalBudgetInput);
-        displaySliderValues(allSliders, totalBudgetInput, percentagesParagraph);
+        adjustSliders(this, unlockedSliders, totalBudgetInput,originalTotalBudget);
+        displaySliderValues(allSliders, totalBudgetInput,originalTotalBudget, percentagesParagraph);
     });
 
     let displayAmount = slider.parentElement.querySelector('.displayAmount');
@@ -42,6 +48,10 @@ allSliders.forEach((slider, index) => {
             }
         });
         // Call the displaySliderValues function to update the display of all sliders
-        displaySliderValues(allSliders, totalBudgetInput, percentagesParagraph);
+        if (percentagesParagraph) {
+            displaySliderValues(allSliders, totalBudgetInput, originalTotalBudget, percentagesParagraph)
+        } else {
+            console.error('percentagesParagraph element not found');
+        }
     });
 });
