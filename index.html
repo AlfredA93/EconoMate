@@ -17,7 +17,34 @@
         <h1 class="heroTitle text-shadow">Budget Calculator</h1>
     </header>
     <main>
-        <div class="leftSide">
+        <div class="budget-container">
+        <div class="advice-container togglesContainer containerShadow">
+            <h3>Currency Converter</h3>
+
+            <span>
+                <label for="current-currency">Current Currency:</label>
+                <input type="number" id="current-currency" value="0">
+            </span>
+            <select name="currency" id="currency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+                <option value="CNY">CNY</option>
+            </select>
+            <span>
+                Convert to:
+            </span>
+            <select name="currency" id="currency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+                <option value="CNY">CNY</option>
+            </select>
+            <button>Convert</button>
+            <span>Converted amount goes here</span>
+        </div>
             <div class="monthlyRevenueContainer containerShadow">
                 <div class="monthlyRevenue">
                     <h2>Monthly Revenue</h2>
@@ -25,18 +52,10 @@
                     <label for="totalBudget">Remaining Budget</label>
                     <input type="number" id="totalBudget">
                 </div>
-                <div class="currencyContainer">
-                    <h3>Currency</h3>
-                    <select name="currency" id="currency">
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="GBP">GBP</option>
-                        <option value="JPY">JPY</option>
-                        <option value="CNY">CNY</option>
-                    </select>
-                </div>
             </div>
-
+            <div class="pie-chart">
+                <div id="myChart"></div>
+            </div>
             <div class="togglesContainer containerShadow">
                 <div class="toggle">
                     <h3>Housing</h3>
@@ -118,8 +137,6 @@
                 <div id="adviceDiv"></div>
             </div>
         </div>
-
-
         <!-- <div class="numerical_inputs">
             <label for="monthlyRevenue">Monthly Revenue:</label>
             <input type="number" id="monthlyRevenue" value="0">
@@ -165,12 +182,8 @@
             <label for="remainder">Remainder:</label>
             <input type="text" id="remainder" readonly>
         </div> -->
-
-        <div class="rightSide">
-            <div id="myChart"></div>
-        </div>
-
     </main>
+    
 
     <script src="script.js"></script>
     <script type="module" src="sliders.js"></script>

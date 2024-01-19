@@ -161,13 +161,13 @@ export function renderPieChart(budgetAmounts, categories) {
     });
 
     let myConfig = {
-        type: 'pie3d',
+        type: 'pie',
         title: {
             text: 'Budget Distribution',
             fontFamily: 'Wire One',
             fontSize: 60,
         },
-        backgroundColor:'#1f8275',
+        // backgroundColor:'#1f8275',
         series: series,
         plot: {
             sizeFactor: 100,
@@ -179,7 +179,7 @@ export function renderPieChart(budgetAmounts, categories) {
             valueBox: {
                 placement: 'out',
                 text: '%t\n%npv%',
-                fontFamily: 'Wire One',
+                // fontFamily: 'Wire One',
                 fontSize: 20,
             },
 
