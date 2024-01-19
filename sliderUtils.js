@@ -96,7 +96,7 @@ export function displaySliderValues(allSliders, totalBudgetInput, originalTotalB
         percentages.push(percentage.toFixed(2));
     });
 
-    percentagesParagraph.textContent = percentages.join(', ');
+
 
     // Calculate the actual budget amounts for each category
     let budgetAmounts = percentages.map(percentage => parseFloat((percentage / 100 * originalTotalBudget.value).toFixed(2)));

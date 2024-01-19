@@ -3,14 +3,17 @@ import { calculateTotal, toggleLock, adjustSliders, displaySliderValues } from '
 const lockButtons = document.querySelectorAll('.lockButton');
 const allSliders = Array.from(document.querySelectorAll('.slider'));
 const totalBudgetInput = document.querySelector('#totalBudget');
+const originalBudgetParagraph = document.querySelector('#originalBudget');
 let originalTotalBudget = { value: Number(totalBudgetInput.value) };
 let percentagesParagraph = document.querySelector('.percentages');
 let unlockedSliders = [...allSliders];
 let lockedSliders = [];
 
 
+
 totalBudgetInput.addEventListener('change', function() {
     originalTotalBudget.value = Number(this.value);
+    originalBudgetParagraph.textContent = `Original Budget: ${originalTotalBudget.value}`;
 });
 
 lockButtons.forEach((lockButton, index) => {
@@ -51,7 +54,7 @@ allSliders.forEach((slider, index) => {
         if (percentagesParagraph) {
             displaySliderValues(allSliders, totalBudgetInput, originalTotalBudget, percentagesParagraph)
         } else {
-            console.error('percentagesParagraph element not found');
+            // console.error('percentagesParagraph element not found');
         }
     });
 });
