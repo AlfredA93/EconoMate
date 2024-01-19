@@ -41,7 +41,6 @@ export function toggleLock(lockButton, index, allSliders, unlockedSliders, locke
             totalBudget -= subtractedAmount;
         }
 
-        console.log('Original total budget after locking:', originalTotalBudget.value);
     } else {
         icon.classList.remove('fa-lock');
         icon.classList.add('fa-unlock');
@@ -52,7 +51,6 @@ export function toggleLock(lockButton, index, allSliders, unlockedSliders, locke
             totalBudget += allSliders[index].subtractedAmount;
         }
 
-        console.log('Original total budget after unlocking:', originalTotalBudget.value);
     }
 
     totalBudgetInput.value = totalBudget.toFixed(2);
@@ -80,8 +78,6 @@ export function adjustSliders(slider, unlockedSliders, totalBudgetInput, origina
             }
         });
     }
-
-    console.log('Original total budget after adjusting sliders:', originalTotalBudget.value);
 }
 export function displaySliderValues(allSliders, totalBudgetInput, originalTotalBudget, percentagesParagraph) {
     let totalBudget = Number(totalBudgetInput.value);
@@ -89,16 +85,58 @@ export function displaySliderValues(allSliders, totalBudgetInput, originalTotalB
 
     allSliders.forEach(slider => {
         let displayAmount = slider.parentElement.querySelector('.displayAmount');
+        let amount;
         if (!slider.disabled) {
-            console.log('Original total budget when displaying values:', originalTotalBudget.value);
-            let amount = (slider.value / 100 * totalBudget).toFixed(2);
+            amount = (slider.value / 100 * totalBudget).toFixed(2);
             displayAmount.value = amount;
         } else {
             displayAmount.value = slider.lockedDisplayAmount;
-            let percentage = (Number(slider.lockedDisplayAmount) / Number(originalTotalBudget.value) * 100);
-            percentages.push(percentage.toFixed(2));
         }
+        let percentage = (Number(displayAmount.value) / Number(originalTotalBudget.value) * 100);
+        percentages.push(percentage.toFixed(2));
     });
 
     percentagesParagraph.textContent = percentages.join(', ');
+
+    // Calculate the actual budget amounts for each category
+    let budgetAmounts = percentages.map(percentage => parseFloat((percentage / 100 * originalTotalBudget.value).toFixed(2)));
+
+    let categories = ["Housing", "Transportation", "Loan", "Living Groceries", "Healthcare", "Children", "Savings", "Bills", "Hobbies", "Holidays"];
+
+    // Calculate the total budget used so far
+    let totalUsedBudget = budgetAmounts.reduce((a, b) => a + b, 0);
+
+    // Calculate the remaining budget
+    let remainingBudget = originalTotalBudget.value - totalUsedBudget;
+
+    // If there are fewer budgetAmounts than categories, add a single slice for the remaining budget
+    if (budgetAmounts.length < categories.length) {
+        budgetAmounts.push(remainingBudget);
+        categories.push("Remaining Budget");
+    }
+
+    // Call the new function to render the pie chart
+    renderPieChart(budgetAmounts, categories);
+
+    return percentages.map(Number);
+}
+
+export function renderPieChart(budgetAmounts, categories) {
+    let series = budgetAmounts.map((amount, index) => {
+        return { values: [amount], text: categories[index] };
+    });
+
+    let myConfig = {
+        type: 'pie',
+        title: {
+            text: 'Budget Distribution'
+        },
+        series: series,
+    };
+
+    // Render the chart
+    zingchart.render({
+        id: 'myChart',
+        data: myConfig
+    });
 }

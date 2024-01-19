@@ -1,13 +1,13 @@
 import { calculateTotal, toggleLock, adjustSliders, displaySliderValues } from './sliderUtils.js';
 
-const allSliders = Array.from(document.querySelectorAll('.slider'));
 const lockButtons = document.querySelectorAll('.lockButton');
+const allSliders = Array.from(document.querySelectorAll('.slider'));
 const totalBudgetInput = document.querySelector('#totalBudget');
+let originalTotalBudget = { value: Number(totalBudgetInput.value) };
 let percentagesParagraph = document.querySelector('.percentages');
 let unlockedSliders = [...allSliders];
 let lockedSliders = [];
 
-let originalTotalBudget = { value: Number(totalBudgetInput.value) };
 
 totalBudgetInput.addEventListener('change', function() {
     originalTotalBudget.value = Number(this.value);
