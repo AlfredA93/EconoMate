@@ -1,4 +1,4 @@
-import { calculateTotal, toggleLock, adjustSliders, displaySliderValues } from './sliderUtils.js';
+import { calculateTotal, toggleLock, adjustSliders, displaySliderValues, renderPieChart } from './sliderUtils.js';
 
 const lockButtons = document.querySelectorAll('.lockButton');
 const allSliders = Array.from(document.querySelectorAll('.slider'));
@@ -10,10 +10,19 @@ let unlockedSliders = [...allSliders];
 let lockedSliders = [];
 
 
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Define the categories
+    let categories = ["Housing", "Transportation", "Loan", "Living Groceries", "Healthcare", "Children", "Savings", "Bills", "Hobbies", "Holidays"];
 
+    // Define fake values
+    let fakeValues = [20, 60, 5, 5, 1, 3, 2, 1, 2, 1]; // Adjust these values as needed
+
+    // Render the pie chart with fake values
+    renderPieChart(fakeValues, categories);
+});
 totalBudgetInput.addEventListener('change', function() {
     originalTotalBudget.value = Number(this.value);
-    originalBudgetParagraph.textContent = `Original Budget: ${originalTotalBudget.value}`;
+    originalBudgetParagraph.textContent = `Original Budget: $${originalTotalBudget.value}`;
 });
 
 lockButtons.forEach((lockButton, index) => {

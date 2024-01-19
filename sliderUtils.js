@@ -84,6 +84,11 @@ export function displaySliderValues(allSliders, totalBudgetInput, originalTotalB
     let percentages = [];
 
     allSliders.forEach(slider => {
+        // If slider.parentElement is undefined, skip this iteration
+        if (!slider.parentElement) {
+            return;
+        }
+
         let displayAmount = slider.parentElement.querySelector('.displayAmount');
         let amount;
         if (!slider.disabled) {
@@ -95,6 +100,7 @@ export function displaySliderValues(allSliders, totalBudgetInput, originalTotalB
         let percentage = (Number(displayAmount.value) / Number(originalTotalBudget.value) * 100);
         percentages.push(percentage.toFixed(2));
     });
+
 
 
 
@@ -115,23 +121,69 @@ export function displaySliderValues(allSliders, totalBudgetInput, originalTotalB
         categories.push("Remaining Budget");
     }
 
-    // Call the new function to render the pie chart
-    renderPieChart(budgetAmounts, categories);
+
+    if (budgetAmounts.length === 0) {
+        renderPieChart([], []);
+    } else {
+        // Calculate the total budget used so far
+        let totalUsedBudget = budgetAmounts.reduce((a, b) => a + b, 0);
+
+        // Calculate the remaining budget
+        let remainingBudget = originalTotalBudget.value - totalUsedBudget;
+
+        // If there are fewer budgetAmounts than categories, add a single slice for the remaining budget
+        if (budgetAmounts.length < categories.length) {
+            budgetAmounts.push(remainingBudget);
+            categories.push("Remaining Budget");
+        }
+
+        // Call the new function to render the pie chart
+        renderPieChart(budgetAmounts, categories);
+    }
 
     return percentages.map(Number);
 }
 
 export function renderPieChart(budgetAmounts, categories) {
+    let colors = ['#77AAAD', '#EE8866', '#EEDD88', '#FFAABB', '#99DDFF', 
+    '#44BB99', '#BBCC33', '#AAAA00', '#DDDDDD', '#fde35a'];
+
     let series = budgetAmounts.map((amount, index) => {
-        return { values: [amount], text: categories[index] };
+    return { 
+    values: [amount], 
+    text: categories[index],  // This will be used as the label
+    backgroundColor: colors[index % colors.length],  // Set the color for this slice
+    // Add this to display the label on the chart
+    tooltip: {
+    text: `${categories[index]}: $${amount}`
+            }
+        };
     });
 
     let myConfig = {
-        type: 'pie',
+        type: 'pie3d',
         title: {
-            text: 'Budget Distribution'
+            text: 'Budget Distribution',
+            fontFamily: 'Wire One',
+            fontSize: 60,
         },
+        backgroundColor:'#1f8275',
         series: series,
+        plot: {
+            sizeFactor: 100,
+            tooltip: {
+                text: "%t: %v (%npv%)",
+                decimals: 2,
+                thousandSeparator: ","
+            },
+            valueBox: {
+                placement: 'out',
+                text: '%t\n%npv%',
+                fontFamily: 'Wire One',
+                fontSize: 20,
+            },
+
+        },
     };
 
     // Render the chart
