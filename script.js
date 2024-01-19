@@ -101,6 +101,41 @@ document.addEventListener("DOMContentLoaded", function () {
       alert(`Warning: You are $${overBudgetAmount} over budget!`);
     }
 
+
+    const bunnyButton = document.getElementById("bunnyButton");
+    const friendButton = document.getElementById("friendButton");
+    const sociopathButton = document.getElementById("sociopathButton");
+    const adviceDiv = document.getElementById("adviceDiv");
+  
+    bunnyButton.addEventListener("click", function () {
+      generateAdvice("bunny");
+    });
+  
+    friendButton.addEventListener("click", function () {
+      generateAdvice("friend");
+    });
+  
+    sociopathButton.addEventListener("click", function () {
+      generateAdvice("sociopath");
+    });
+  
+    function generateAdvice(level) {
+      let advice = "";
+  
+      if (level === "bunny") {
+        advice = "Bunny advice: Everything is looking great, keep being your awesome self!";
+      } else if (level === "friend") {
+        advice = "Friend advice: You're not triggering any warnings. You are considered financially healthy. Well done!";
+      } else if (level === "sociopath") {
+        advice = "Sociopath advice: Let's be honest, you knew this was ok already. You're just looking for praise and affirmation, aren't you? Here you go then.... (*slow claps*)";
+      } else {
+        advice = `${level} advice test (representing the 'else' statement): ...`;
+      }
+  
+      // Display advice in the adviceDiv
+      adviceDiv.textContent = advice;
+    }
+
     // Pie Chart Configuration
 
     let myConfig = {
