@@ -19,7 +19,140 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Render the pie chart with fake values
     renderPieChart(fakeValues, categories);
+    
+    // Event listeners for advice buttons
+    const bunnyButton = document.getElementById("bunnyButton");
+    const friendButton = document.getElementById("friendButton");
+    const sociopathButton = document.getElementById("sociopathButton");
+    const adviceDiv = document.getElementById("adviceDiv");
+    const roundedPercentages = {};
+    
+
+    // Define the generateHousingAdvice function
+    function generateHousingAdvice(level) {
+        let advice = "";
+        if (level === "bunny") {
+            advice = "Bunny housing advice: Consider finding a more affordable place or sharing expenses.";
+        } else if (level === "friend") {
+            advice = "Friend housing advice: Your housing expenses are rather high. You're going to need to look into ways to reduce these.<br>Maybe consider renting some of your un-used space?";
+        } else if (level === "sociopath") {
+            advice = "Sociopath housing advice: Converting a van or moving in a whole load of lodgers are looking like strong options for you right now.";
+        }
+        return advice; 
+    }
+
+    function generateTransportationAdvice(level) {
+        let advice = "";
+        if (level === "bunny") {
+            advice = "Bunny transportation advice: Your transportation expenses are higher than recommended. Consider using public transportation or carpooling to save money.";
+        } else if (level === "friend") {
+            advice = "Friend transportation advice: Your transportation costs are a bit high. Look for ways to reduce these expenses, like using a more fuel-efficient vehicle or biking for short trips.";
+        } else if (level === "sociopath") {
+            advice = "Sociopath transportation advice: Your transportation spending is off the charts. It's time to sell that luxury car and start taking the bus. And if you can't afford the bus, it's time to start cycling or skateboarding!";
+        }
+        return advice;
+    }
+
+    // Function to determine advice type based on user input percentages and thresholds
+    function determineAdviceType(level, roundedPercentages) {
+        // Define thresholds for different categories
+        const housingThreshold = 40; 
+        const transportationThreshold = 15;
+
+        // Check if the Housing percentage exceeds the threshold
+        if (roundedPercentages["Housing"] > housingThreshold) {
+            // If it exceeds, call the housing advice function
+            const housingAdvice = generateHousingAdvice(level, roundedPercentages["Housing"]);
+            return housingAdvice;
+        } else if(roundedPercentages["Transportation"] > transportationThreshold) {
+            // If the transportation percentage exceeds the threshold, generate transportation advice
+            const transportationAdvice = generateTransportationAdvice(level, roundedPercentages["Transportation"]);
+            return transportationAdvice;
+        } else {
+            // If no thresholds are triggered, return generic advice based on the level
+            if (level === "bunny") {
+                return "Bunny advice: Everything is looking great, keep being your awesome self!";
+            } else if (level === "friend") {
+                return "Friend advice: You're not triggering any warnings. You are considered financially healthy. Well done!";
+            } else if (level === "sociopath") {
+                return "Sociopath advice: Let's be honest, you knew this was ok already. You're just looking for praise and affirmation, aren't you? Here you go then.... (*slow claps*)";
+            }
+        }
+    }
+
+    let level = ""; // Initialize the level variable
+
+    bunnyButton.addEventListener("click", function () {
+        level = "bunny";
+        if (!originalTotalBudget.value) {
+            // Display a message to input the Total Budget first
+            adviceDiv.textContent = "You seem to have forgotten to fill in important details.";
+        } else {
+            allSliders.forEach((slider, index) => {
+                const displayAmount = slider.parentElement.querySelector('.displayAmount');
+                const category = categories[index];
+                const percentage = (Number(displayAmount.value) / totalBudgetInput.value) * 100;
+
+                roundedPercentages[category] = Math.round(percentage);
+            });
+
+            console.log("User input percentages:", roundedPercentages);
+            // Determine advice type based on level and user input percentages
+            const advice = determineAdviceType(level, roundedPercentages);
+
+            // Display the determined advice
+            adviceDiv.innerHTML = advice;
+        }
+    });
+
+    friendButton.addEventListener("click", function () {
+        level = "friend";
+        if (!originalTotalBudget.value) {
+            // Display a message to input the Total Budget first
+            adviceDiv.textContent = "Please input the Total Budget before getting advice.";
+        } else {
+            allSliders.forEach((slider, index) => {
+                const displayAmount = slider.parentElement.querySelector('.displayAmount');
+                const category = categories[index];
+                const percentage = (Number(displayAmount.value) / totalBudgetInput.value) * 100;
+
+                roundedPercentages[category] = Math.round(percentage);
+            });
+
+            console.log("User input percentages:", roundedPercentages);
+            // Determine advice type based on level and user input percentages
+            const advice = determineAdviceType(level, roundedPercentages);
+
+            // Display the determined advice
+            adviceDiv.innerHTML = advice;
+        }
+    });
+
+    sociopathButton.addEventListener("click", function () {
+        level = "sociopath";
+        if (!originalTotalBudget.value) {
+            // Display a message to input the Total Budget first
+            adviceDiv.textContent = "Stop pretending you don't know how forms work and put some values in. Don't be an impatient little weirdo!";
+        } else {
+            allSliders.forEach((slider, index) => {
+                const displayAmount = slider.parentElement.querySelector('.displayAmount');
+                const category = categories[index];
+                const percentage = (Number(displayAmount.value) / totalBudgetInput.value) * 100;
+
+                roundedPercentages[category] = Math.round(percentage);
+            });
+
+            console.log("User input percentages:", roundedPercentages);
+            // Determine advice type based on level and user input percentages
+            const advice = determineAdviceType(level, roundedPercentages);
+
+            // Display the determined advice
+            adviceDiv.innerHTML = advice;
+        }
+    });
 });
+
+
 totalBudgetInput.addEventListener('change', function() {
     originalTotalBudget.value = Number(this.value);
     originalBudgetParagraph.textContent = `Original Budget: $${originalTotalBudget.value}`;
