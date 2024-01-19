@@ -97,7 +97,16 @@ main{
     border-radius: 10px;
 }
 
+.advice-container{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
+.advice-container, h3 {
+    width: 100%;
+    text-align: center;
+}
 
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Important: remove default styles */
