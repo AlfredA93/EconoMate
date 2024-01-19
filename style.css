@@ -65,7 +65,6 @@ main{
     font-family: "Wire One", sans-serif;
     font-size: 3rem;
     line-height: 0.3;
-    text-shadow: -3px 3px 0px var(--white-color);
 }
 .togglesContainer{
     display: flex;
