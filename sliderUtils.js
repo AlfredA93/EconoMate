@@ -27,8 +27,13 @@ export function toggleLock(lockButton, index, allSliders, unlockedSliders, locke
             lockedSliders.push(allSliders[index]);
             allSliders[index].lockedValue = Number(allSliders[index].value);
 
+            // Calculate the remaining budget
+            let remainingBudget = totalBudget - allSliders[index].lockedValue;
+            // Calculate the percentage of the remaining budget that each unlocked slider should receive
+            let remainingPercentage = (remainingBudget / totalBudget) * 100 / unlockedSliders.length;
+            // Set the value of the unlocked sliders to this percentage
             unlockedSliders.forEach(slider => {
-                slider.value = 0;
+                slider.value = remainingPercentage;
             });
 
             let subtractedAmount = allSliders[index].lockedValue / 100 * totalBudget;
@@ -49,7 +54,6 @@ export function toggleLock(lockButton, index, allSliders, unlockedSliders, locke
     totalBudgetInput.value = totalBudget.toFixed(2);
     allSliders[index].dispatchEvent(new Event('input'));
 }
-
 export function adjustSliders(slider, unlockedSliders, totalBudgetInput) {
     let totalBudget = Number(totalBudgetInput.value);
     let total = calculateTotal(unlockedSliders);
