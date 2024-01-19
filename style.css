@@ -36,6 +36,7 @@ main{
 .leftSide{
     display: flex;
     flex-direction: column;
+    width: 50%;
 }
 .monthlyRevenueContainer{
     display: flex;
@@ -46,11 +47,17 @@ main{
     border-radius: 10px;
     width: 100%;
 }
+.monthlyRevenue{
+    font-family: "Wire One", sans-serif;
+    font-size: 3rem;
+    line-height: 0.3;
+    text-shadow: -3px 3px 0px var(--white-color);
+}
 .togglesContainer{
     display: flex;
     margin-top: 1rem;
     flex-wrap: wrap;
-    width: 66%;
+    width: 100%;
     background-color: var(--secondary-color);
     border-radius: 10px;
     margin-top: 1rem;
@@ -58,7 +65,7 @@ main{
     color: var(--text-color);
 }
 .toggle{
-    width: 18%;
+    width: 17%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,8 +76,12 @@ main{
     box-shadow: -4px 4px 0px rgba(28,101,112,1);
     text-align: center;
     padding: 2px;
+    font-family: "Wire One", sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
 }
-
+.toggle h3{
+}
 .slider {
     -webkit-appearance: none;
     width: 100px; /* Now this is the height */
@@ -118,20 +129,22 @@ main{
     background-color: var(--accent-color);
     color: var(--text-color);
     font-family: 'Lexend', sans-serif;
-    font-size: 1.1rem;
+    font-size: 2rem;
+    font-weight: 700;
     border-radius: 10px;
     margin-bottom: 20px;
-
-    /* New styles to remove the arrow */
     -webkit-appearance: none; /* For Chrome and Safari */
     -moz-appearance: textfield; /* For Firefox */
-}
+    font-family: "Wire One", sans-serif;
+    /* Inner shadow */
+    box-shadow:inset -3px 3px 0px #ab7919;
 
-/* For IE and Edge */
-.displayAmount::-webkit-outer-spin-button,
-.displayAmount::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+    /* For IE and Edge */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 }
 .lockButton{
     width: 30px;
@@ -151,4 +164,35 @@ main{
     color: var(--accent-color);
     font-size: 1.3rem;
 
+}
+
+@media screen and (max-width: 768px) {
+    .heroTitle{
+        font-size: 3rem;
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    .monthlyRevenueContainer{
+        padding: 0.5rem;
+    }
+    .monthlyRevenue{
+        font-size: 2rem;
+        line-height: 40px;
+    }
+    main{
+        display: block;
+    }
+    .leftSide{
+
+        margin: 0 auto;
+        width: 70%;
+    }
+    .togglesContainer{
+        padding: 0.5rem;
+    }
+    .toggle{
+        width: 26%;
+        font-size: 1.1rem;
+    }
 }

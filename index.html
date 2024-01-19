@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&family=Wire+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Budget Calculator</title>
     <script src="https://kit.fontawesome.com/2a30a0d914.js" crossorigin="anonymous"></script>
@@ -58,7 +58,7 @@
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
-                    <h3>Living Expenses</h3>
+                    <h3>Groceries</h3>
                     <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow" id="myRange">
                     <p>Amount:</p>
                     <input type="number"  class="displayAmount" placeholder="€">
@@ -86,14 +86,14 @@
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
-                    <h3>Loan</h3>
+                    <h3>Bills</h3>
                     <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow" id="myRange">
                     <p>Amount:</p>
                     <input type="number"  class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
-                    <h3>Hobbies & Sports</h3>
+                    <h3>Hobbies</h3>
                     <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow" id="myRange">
                     <p>Amount:</p>
                     <input type="number"  class="displayAmount" placeholder="€">
@@ -103,11 +103,13 @@
                     <h3>Travel</h3>
                     <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"  id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" >
+                    <input type="number"  class="displayAmount" placeholder="€" >
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
             </div>
         </div>
+
+        <p class="percentages"></p>
 
         <div class="numerical_inputs">
             <label for="monthlyRevenue">Monthly Revenue:</label>

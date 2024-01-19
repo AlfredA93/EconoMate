@@ -74,16 +74,35 @@ export function adjustSliders(slider, unlockedSliders, totalBudgetInput) {
     }
 }
 
-export function displaySliderValues(allSliders, totalBudgetInput) {
+export function displaySliderValues(allSliders, totalBudgetInput, percentagesParagraph) {
     let totalBudget = Number(totalBudgetInput.value);
+    let totalSliderValue = 0;
+    let percentages = [];
+
+    // Calculate the total value of all sliders
+    allSliders.forEach(slider => {
+        totalSliderValue += Number(slider.value);
+    });
+
     allSliders.forEach(slider => {
         let displayAmount = slider.parentElement.querySelector('.displayAmount');
         if (!slider.disabled) {
+            // Calculate the percentage of the slider
+            let percentage = (slider.value / totalSliderValue) * 100;
+            // Add the percentage to the array
+            percentages.push(percentage.toFixed(2));
+            // Calculate the amount for the displayAmount input
+            let amount = (slider.value / 100 * totalBudget).toFixed(2);
             // Use the value property to set the value of the displayAmount input
-            displayAmount.value = (slider.value / 100 * totalBudget).toFixed(2);
+            displayAmount.value = amount;
         } else {
             // Use the value property to set the value of the displayAmount input
             displayAmount.value = slider.lockedDisplayAmount;
+            // Add the locked value to the array
+            percentages.push(slider.lockedDisplayAmount);
         }
-});
+    });
+
+    // Update the text content of the percentages paragraph
+    percentagesParagraph.textContent = percentages.join(', ');
 }
