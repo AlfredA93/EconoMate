@@ -19,34 +19,33 @@
         <h1 class="heroTitle text-shadow">Budget Busters</h1>
     </header>
     <main>
-
-            <div class="advice-container togglesContainer containerShadow">
+        <div class="budget-container">
+            <div class="currency-container togglesContainer containerShadow">
                 <h3>Currency Converter</h3>
-
                 <span>
                     <label for="current-currency">Current Currency:</label>
-                    <input type="number" id="current-currency" value="0">
+                    <input type="number" id="current-currency" value="0" class="currencyDisplayAmount">
+                    <select name="base-currency" id="base-currency" class="currencyDisplayAmount">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="JPY">JPY</option>
+                        <option value="CNY">CNY</option>
+                    </select>
                 </span>
-                <select name="base-currency" id="base-currency">
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                    <option value="GBP">GBP</option>
-                    <option value="JPY">JPY</option>
-                    <option value="CNY">CNY</option>
-                </select>
                 <span>
                     Convert to:
+                    <select name="target-currency" id="target-currency" class="currencyDisplayAmount">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="JPY">JPY</option>
+                        <option value="CNY">CNY</option>
+                    </select>
                 </span>
-                <select name="target-currency" id="target-currency">
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                    <option value="GBP">GBP</option>
-                    <option value="JPY">JPY</option>
-                    <option value="CNY">CNY</option>
-                </select>
-                <button id="convert-button">Convert</button>
+                <button id="convert-button" class="currencyDisplayAmount">Convert</button>
                 <div id="conversion-result">
-                    <p>Converted Amount: <span id="converted-amount">...</span></p>
+                    <p>Converted Amount: <span id="converted-amount" class="displayAmount" >...</span></p>
                 </div>
                 <div id="error-message"></div>
             </div>
@@ -157,7 +156,7 @@
                             <button id="bunnyButton" class="advice-button">Bunny</button>
                             <button id="friendButton" class="advice-button">Friend</button>
                             <button id="sociopathButton" class="advice-button">Sociopath</button>
-                            
+
                         </div>
                         <div id="adviceDiv"></div>
                     </div>
