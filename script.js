@@ -28,6 +28,28 @@ document.addEventListener("DOMContentLoaded", function () {
   const holidaysPercentage = document.getElementById("holidaysPercentage");
   const remainderInput = document.getElementById("remainder");
 
+  const bunnyButton = document.getElementById("bunnyButton");
+  const friendButton = document.getElementById("friendButton");
+  const sociopathButton = document.getElementById("sociopathButton");
+  const adviceDiv = document.getElementById("adviceDiv");
+
+  let level = "none";
+  // Event listeners for advice buttons
+  bunnyButton.addEventListener("click", function () {
+    level = "bunny";
+    determineAdviceType();
+  });
+
+  friendButton.addEventListener("click", function () {
+    level = "friend";
+    determineAdviceType();
+  });
+
+  sociopathButton.addEventListener("click", function () {
+    level = "sociopath";
+    determineAdviceType();
+  });
+
   calculateButton.addEventListener("click", function () {
     const monthlyRevenue = parseFloat(monthlyRevenueInput.value);
     const housing = parseFloat(housingInput.value) || 0;
@@ -55,15 +77,15 @@ document.addEventListener("DOMContentLoaded", function () {
     remainderInput.value = remainder.toFixed(2);
 
     // Show percentage fields after calculation
-    housingPercentage.style.display = "block";
-    transportationPercentage.style.display = "block";
-    loanPercentage.style.display = "block";
-    livingExpensesPercentage.style.display = "block";
-    healthcarePercentage.style.display = "block";
-    childrenPercentage.style.display = "block";
-    savingsPercentage.style.display = "block";
-    hobbiesSportsPercentage.style.display = "block";
-    holidaysPercentage.style.display = "block";
+    // housingPercentage.style.display = "block";
+    // transportationPercentage.style.display = "block";
+    // loanPercentage.style.display = "block";
+    // livingExpensesPercentage.style.display = "block";
+    // healthcarePercentage.style.display = "block";
+    // childrenPercentage.style.display = "block";
+    // savingsPercentage.style.display = "block";
+    // hobbiesSportsPercentage.style.display = "block";
+    // holidaysPercentage.style.display = "block";
 
     if (monthlyRevenue !== 0) {
       housingPercentage.value =
@@ -101,27 +123,32 @@ document.addEventListener("DOMContentLoaded", function () {
       alert(`Warning: You are $${overBudgetAmount} over budget!`);
     }
 
+    const housingPercentageValue = parseFloat(housingPercentage.value);
 
-    const bunnyButton = document.getElementById("bunnyButton");
-    const friendButton = document.getElementById("friendButton");
-    const sociopathButton = document.getElementById("sociopathButton");
-    const adviceDiv = document.getElementById("adviceDiv");
-  
-    bunnyButton.addEventListener("click", function () {
-      generateAdvice("bunny");
-    });
-  
-    friendButton.addEventListener("click", function () {
-      generateAdvice("friend");
-    });
-  
-    sociopathButton.addEventListener("click", function () {
-      generateAdvice("sociopath");
-    });
+    if (housingPercentageValue > housingThreshold) {
+      // If housing expenses are more than the threshold
+      housingPercentage.value = housingPercentageValue + "%";
+      // Show housing advice based on the selected level
+      generateHousingAdvice(level);
+    } else {
+      // If housing expenses are at or below the threshold, show the default advice
+      housingPercentage.value = housingPercentageValue + "%";
+      determineAdviceType();
+    }
+  });
+
+  function determineAdviceType() {
+    if (housingPercentageValue > housingThreshold && level !== "none") {
+      // If housing expenses are more than the threshold and level is not "none"
+      generateHousingAdvice(level);
+    } else {
+      // Otherwise, show the default advice based on the selected level
+      generateAdvice(level);
+    }
+  }
   
     function generateAdvice(level) {
       let advice = "";
-  
       if (level === "bunny") {
         advice = "Bunny advice: Everything is looking great, keep being your awesome self!";
       } else if (level === "friend") {
@@ -131,9 +158,20 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         advice = `${level} advice test (representing the 'else' statement): ...`;
       }
-  
       // Display advice in the adviceDiv
       adviceDiv.textContent = advice;
+    }
+
+    function generateHousingAdvice(level) {
+      let advice = "";
+      if (level === "bunny") {
+        advice = "Bunny housing advice: Consider finding a more affordable place or sharing expenses.";
+      } else if (level === "friend") {
+        advice = "Friend housing advice: Your housing expenses are rather high. You're going to need to look into ways to reduce these.<br>Maybe consider renting some of your un-used space?";
+      } else if (level === "sociopath") {
+        advice = "Sociopath housing advice: Converting a van or moving in a whole load of lodgers are looking like strong options for you right now.";
+      }
+      adviceDiv.innerHTML = advice;
     }
 
     // Pie Chart Configuration
@@ -207,4 +245,3 @@ document.addEventListener("DOMContentLoaded", function () {
       data: myConfig,
     });
   });
-});

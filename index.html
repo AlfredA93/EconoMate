@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend&family=Wire+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Budget Calculator</title>
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
     <script src="https://kit.fontawesome.com/2a30a0d914.js" crossorigin="anonymous"></script>
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-
+    <title>Budget Busters</title>
 </head>
-<body>
 
+<body>
     <header>
-        <h1 class="heroTitle text-shadow">Budget Calculator</h1>
+        <h1 class="heroTitle text-shadow">Budget Busters</h1>
     </header>
     <main>
         <div class="budget-container">
@@ -53,85 +54,96 @@
                 <div class="monthlyRevenue">
                     <h2>Monthly Revenue</h2>
                     <label for="originalBudget">Starting Budget:</label>
-                    <input type="number" id="originalBudget"></input>
-                    <label for="totalBudget">Remaining Budget</label>
-                    <input type="number" id="totalBudget">
+                    <input type="number" id="originalBudget" class="displayAmount">
+                    <label for="totalBudget">Remaining Budget:</label>
+                    <input type="number" id="totalBudget" class="displayAmount">
                 </div>
             </div>
-            <div class="pie-chart">
-                <div id="myChart"></div>
-            </div>
+            
             <div class="togglesContainer containerShadow">
                 <div class="toggle">
                     <h3>Housing</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Transportation</h3>
-                    <input type="range" min="0" max="100" value="0"  step="0.01" class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Loan</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"  id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Groceries</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Healthcare</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€" >
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Children</h3>
-                    <input type="range" min="0" max="100" value="0"  step="0.01" class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Savings</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01"  class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Bills</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Hobbies</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Travel</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"  id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€" >
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
+            </div>
+            <div class="pie-chart">
+                <div id="myChart"></div>
             </div>
             <div class="advice-container togglesContainer containerShadow">
                 <h3>Would you like advice on your expenditure?</h3>
@@ -142,56 +154,12 @@
                 <div id="adviceDiv"></div>
             </div>
         </div>
-        <!-- <div class="numerical_inputs">
-            <label for="monthlyRevenue">Monthly Revenue:</label>
-            <input type="number" id="monthlyRevenue" value="0">
-            <br>
-            <label for="housing">Housing:</label>
-            <input type="number" id="housing" value="0">
-            <input type="text" id="housingPercentage" readonly style="display:none;">
-            <br>
-            <label for="transportation">Transportation:</label>
-            <input type="number" id="transportation" value="0">
-            <input type="text" id="transportationPercentage" readonly style="display:none;">
-            <br>
-            <label for="loan">Loan:</label>
-            <input type="number" id="loan" value="0">
-            <input type="text" id="loanPercentage" readonly style="display:none;">
-            <br>
-            <label for="livingExpenses">Living Expenses:</label>
-            <input type="number" id="livingExpenses" value="0">
-            <input type="text" id="livingExpensesPercentage" readonly style="display:none;">
-            <br>
-            <label for="healthcare">Healthcare:</label>
-            <input type="number" id="healthcare" value="0">
-            <input type="text" id="healthcarePercentage" readonly style="display:none;">
-            <br>
-            <label for="children">Children:</label>
-            <input type="number" id="children" value="0">
-            <input type="text" id="childrenPercentage" readonly style="display:none;">
-            <br>
-            <label for="savings">Savings:</label>
-            <input type="number" id="savings" value="0">
-            <input type="text" id="savingsPercentage" readonly style="display:none;">
-            <br>
-            <label for="hobbiesSports">Hobbies and Sports:</label>
-            <input type="number" id="hobbiesSports" value="0">
-            <input type="text" id="hobbiesSportsPercentage" readonly style="display:none;">
-            <br>
-            <label for="holidays">Holidays:</label>
-            <input type="number" id="holidays" value="0">
-            <input type="text" id="holidaysPercentage" readonly style="display:none;">
-            <br>
-            <button id="calculate">Calculate</button>
-            <br>
-            <label for="remainder">Remainder:</label>
-            <input type="text" id="remainder" readonly>
-        </div> -->
     </main>
-    
+   
     <script src="API.js"></script>
     <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
     <script type="module" src="sliders.js"></script>
 </body>
-</html>
 
+</html>

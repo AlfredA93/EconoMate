@@ -6,6 +6,10 @@
     --white-color: #DFE0DF;
 }
 
+html{
+    overflow-x: hidden;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -14,6 +18,7 @@ body{
 }
 
 header{
+    width: 97%;
     margin: auto;
     display: flex;
     justify-content: end;
@@ -47,6 +52,9 @@ main{
     margin-bottom: 2.5%;
     
 }
+#currency, #current-currency, #originalBudget, #totalBudget{
+    max-width: 75px;
+}
 
 #myChart{
     border-radius: 5px;
@@ -59,7 +67,7 @@ main{
     color: var(--text-color);
     padding: 1rem;
     border-radius: 10px;
-    width: 100%;
+    width: 97%;
 }
 .monthlyRevenue{
     font-family: "Wire One", sans-serif;
@@ -71,7 +79,7 @@ main{
     justify-content: center;
     margin-top: 1rem;
     flex-wrap: wrap;
-    width: 100%;
+    width: 97%;
     background-color: var(--secondary-color);
     border-radius: 10px;
     margin-top: 1rem;
@@ -120,7 +128,7 @@ main{
 }
 
 .advice-container, h3 {
-    width: 100%;
+    width: 97%;
     text-align: center;
 }
 
