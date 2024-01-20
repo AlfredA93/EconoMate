@@ -195,9 +195,37 @@
                         <div id="adviceDiv"></div>
                     </div>
                 </div>
-
-
     </main>
+
+    <footer>
+        <div class="footer-main" id="footer-container"></div>
+      
+        <script>
+          const teamMembers = [
+            { name: "Aj", github: "https://github.com/ajmccredie" },
+            { name: "Tanguy", github: "https://github.com/tlalexandre" },
+            { name: "Alfred", github: "https://github.com/AlfredA93" },
+            { name: "Yakiv", github: "https://github.com/YakivBrychuk" },
+            { name: "Dave T", github: "https://github.com/DaveTrev" },
+            { name: "Paul", github: "https://github.com/hughes84" },
+            { name: "Oliver", github: "https://github.com/OMandila" },
+          ];
+      
+          const footerContainer = document.getElementById("footer-container");
+      
+          teamMembers.forEach((member, index) => {
+            const div = document.createElement("div");
+            div.className = `footer-${index + 1}`;
+            div.innerHTML = `
+              <h3>${member.name}</h3>
+              <a href="${member.github}" target="_blank" aria-label="${member.name}'s github account">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            `;
+            footerContainer.appendChild(div);
+          });
+        </script>
+      </footer>
 
     <script src="API.js"></script>
     <script src="script.js"></script>
