@@ -479,6 +479,38 @@ margin-left: 10px;
     transition : 1s ease;
 }
 
+.footer-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #63bbfffc;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .footer-main > div {
+    flex: 1;
+    margin: 10px;
+  }
+
+  .footer-main a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 10px;
+}
+
+.footer-main a:hover {
+    color: #ffa500;
+    cursor: pointer;
+}
+
+.footer-main h3 {
+    color: white;
+  }
+
 @media screen and (max-width: 768px) {
     .heroTitle{
         font-size: 3rem;
