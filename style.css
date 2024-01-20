@@ -34,9 +34,12 @@ header{
     border-radius: 10px;
 }
 main{
-    display: flex;
-    justify-content: center;
+    width: 90%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .leftSide{
     display: flex;
@@ -73,25 +76,22 @@ main{
     line-height: 0.3;
 }
 .togglesContainer{
-    display: flex;
-    justify-content: center;
     margin-top: 1rem;
-    flex-wrap: wrap;
-    width: 97%;
+    width: 100%;
     margin-top: 1rem;
-    padding: 1rem;
+    padding: 0.2rem;
     background-color: var(--secondary-color);
     border-radius: 10px;
     color: var(--text-color);
 }
 .toggle{
-    width: 17%;
+    width: 90%;
+    height: 50px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: var(--white-color);
-    margin: 0.4rem;
+    margin: 0.5rem auto;
     border-radius: 10px;
     box-shadow: -4px 4px 0px rgba(28,101,112,1);
     text-align: center;
@@ -105,15 +105,13 @@ main{
 .slider {
     -webkit-appearance: none;
     width: 100px; /* Now this is the height */
-    height: 40px; /* Now this is the width */
+    height: 30px; /* Now this is the width */
     background: var(--text-color);
     outline: none;
     opacity: 1;
     -webkit-transition: .2s;
     transition: opacity .2s;
-    transform: rotate(90deg) scaleX(-1); /* Rotate and flip the slider */
-    margin-bottom: 20px;
-    margin-top: 40px;
+    /* transform: rotate(90deg) scaleX(-1); Rotate and flip the slider */
     border-radius: 10px;
 }
 
@@ -127,6 +125,28 @@ main{
     margin-bottom: 2.5%;
 }
 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Important: remove default styles */
+    appearance: none;
+    width: 15px;
+    height: 39px;
+    background: var(--accent-color); /* Change the color */
+    border-radius: 10px; /* Make it circular */
+    cursor: pointer;
+    box-shadow: -4px 4px 0px rgba(28,101,112,1);
+}
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+.text-shadow{
+    text-shadow: 0px 9px 0px rgba(28,101,112,0.75);  ;
+}
+.containerShadow{
+    box-shadow: -4px 4px 0px rgba(28,101,112,1);
+}
 .advice-container{
     display:flex;
     justify-content: space-evenly;
@@ -144,7 +164,7 @@ main{
 #adviceDiv{
     font-size: 2.4rem;
 }
-.advice-container, h3  {
+.advice-container h3  {
     width: 97%;
     font-size: 3rem;
     text-align: center;
@@ -222,10 +242,29 @@ main{
     background-color: var(--accent-color);
     color: var(--text-color);
     font-family: 'Lexend', sans-serif;
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 700;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-right: 10px;
+    -webkit-appearance: none; /* For Chrome and Safari */
+    -moz-appearance: textfield; /* For Firefox */
+    font-family: "Wire One", sans-serif;
+    /* Inner shadow */
+    box-shadow:inset -3px 3px 0px #ab7919;
+}
+
+.displayAmount {
+    /* Existing styles */
+    width: 20%;
+    height: 20px;
+    text-align: center;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    font-family: 'Lexend', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    border-radius: 10px;
+    margin-right: 10px;
     -webkit-appearance: none; /* For Chrome and Safari */
     -moz-appearance: textfield; /* For Firefox */
     font-family: "Wire One", sans-serif;
@@ -245,7 +284,7 @@ main{
     background: var(--secondary-color);
     border: none;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-right: 10px;
     
 }
 .fa-lock{
@@ -324,19 +363,17 @@ main{
         font-size: 2rem;
         line-height: 40px;
     }
-    main{
-        display: block;
-    }
-    .leftSide{
 
-        margin: 0 auto;
-        width: 70%;
-    }
     .togglesContainer{
-        padding: 0.5rem;
+        margin: 0.5rem;
     }
     .toggle{
-        width: 26%;
+        width: 90%;
         font-size: 1.1rem;
+    }
+    .slider{
+        width: 80px;
+        height: 10px;
+        margin: 0 20px;
     }
 }
