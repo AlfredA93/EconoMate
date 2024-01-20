@@ -145,15 +145,6 @@ margin-left: 10px;
  
 }
 
-#currency, #current-currency, #originalBudget, #totalBudget{
-    max-width: 75px;
-}
-.currency-container{
-    display:flex;
-    justify-content:space-evenly;
-    align-items: center;
-    margin-bottom: 2.5%;
-}
 
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Important: remove default styles */
@@ -176,6 +167,85 @@ margin-left: 10px;
 }
 .containerShadow{
     box-shadow: -4px 4px 0px rgba(28,101,112,1);
+}
+
+#currency, #current-currency, #originalBudget, #totalBudget{
+    /* max-width: 75px; */
+}
+.titleCurrency{
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 97%;
+    font-size: 2rem;
+    
+}
+.splitButton{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+}
+.currencies{
+    width: 50%;
+    font-weight: 600;
+    font-size: 1.7rem;
+    background-color: var(--white-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.currency-container{
+    display: none;
+    position: fixed;
+    top: 10%;
+    left:2%;
+    width: 20%;
+}
+
+
+.currency-container.visible {
+    display: block;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Wire One", sans-serif;
+
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    color: var(--text-color);
+
+}
+
+.currencyButton{
+    display:block;
+    z-index: 10;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0 0 20px 20px;
+    width: 10%;
+    min-width: 70px;
+    height: 15%;
+    max-height: 100px;
+    background-color: var(--accent-color);
+    font-family: "Wire One", sans-serif;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+}
+.closeCurrency{
+    width: 10%;
+    height: 20px;
+    background-color: var(--accent-color);
+    font-family: "Wire One", sans-serif;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
 }
 .advice-container{
     display:flex;
@@ -226,8 +296,8 @@ margin-left: 10px;
 
 
 .currencyDisplayAmount {
-    /* Existing styles */
-    min-width: 75px;
+    display: block;
+    width: 70%;
     text-align: center;
     background-color: var(--accent-color);
     color: var(--text-color);
@@ -241,6 +311,55 @@ margin-left: 10px;
     font-family: "Wire One", sans-serif;
     /* Inner shadow */
     box-shadow:inset -3px 3px 0px #ab7919;
+}
+#converted-amount{
+    width: 100%;
+    display: flex;
+    text-align: center;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    font-family: 'Lexend', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    -webkit-appearance: none; /* For Chrome and Safari */
+    -moz-appearance: textfield; /* For Firefox */
+    font-family: "Wire One", sans-serif;
+    /* Inner shadow */
+    box-shadow:inset -3px 3px 0px #ab7919;
+}
+#convert-button{
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    font-family: 'Lexend', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 10px;
+    -webkit-appearance: none; /* For Chrome and Safari */
+    -moz-appearance: textfield; /* For Firefox */
+    font-family: "Wire One", sans-serif;
+    /* Inner shadow */
+    box-shadow:inset -3px 3px 0px #ab7919;
+}
+
+#conversion-result{
+    width: 50%;
+    font-weight: 600;
+    font-size: 1.7rem;
+    background-color: var(--white-color);
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid var(--primary-color);
+}
+
+#conversion-result p{
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .displayAmount {
@@ -348,11 +467,13 @@ margin-left: 10px;
     bottom: 0;
     right: 0;
     margin: 20px;
-    width: 150px;
-    height: 100px;
+    width: 10%;
+    min-width: 70px;
+    height: 15%;
+    max-height: 100px;
     background-color: var(--accent-color);
     font-family: "Wire One", sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     border-radius: 10px;
     font-weight: 600;
     transition : 1s ease;
@@ -399,7 +520,7 @@ margin-left: 10px;
         width: 40px;
         height: 40px;
     }
-    .displayAmount{
-
+    .currency-container{
+        width: 70%;
     }
 }

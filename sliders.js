@@ -15,6 +15,16 @@ let lockedSliders = [];
 let modal=document.getElementById("myModal");
 let closeButton=document.querySelector(".close");
 
+
+document.getElementById('show-popup-button').addEventListener('click', function() {
+    document.querySelector('.currency-container').classList.add('visible');
+});
+
+document.getElementById('close-popup-button').addEventListener('click', function() {
+    document.querySelector('.currency-container').classList.remove('visible');
+});
+
+
 closeButton.addEventListener("click", function() {
     modal.style.display="none";
 
