@@ -19,34 +19,45 @@
         <h1 class="heroTitle text-shadow">Budget Busters</h1>
     </header>
     <main>
-            <div class="currency-container togglesContainer containerShadow">
-                <h3>Currency Converter</h3>
-                <span>
-                    <label for="current-currency">Current Currency:</label>
-                    <input type="number" id="current-currency" value="0" class="currencyDisplayAmount">
-                    <select name="base-currency" id="base-currency" class="currencyDisplayAmount">
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="GBP">GBP</option>
-                        <option value="JPY">JPY</option>
-                        <option value="CNY">CNY</option>
-                    </select>
-                </span>
-                <span>
-                    Convert to:
-                    <select name="target-currency" id="target-currency" class="currencyDisplayAmount">
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="GBP">GBP</option>
-                        <option value="JPY">JPY</option>
-                        <option value="CNY">CNY</option>
-                    </select>
-                </span>
-                <button id="convert-button" class="currencyDisplayAmount">Convert</button>
-                <div id="conversion-result">
-                    <p>Converted Amount: <span id="converted-amount" class="displayAmount" >...</span></p>
+        <button id="show-popup-button" class="currencyButton">Currency</button>
+            <div class="currency-container containerShadow">
+                <div class="titleCurrency">
+
+                    <button id="close-popup-button" class="closeCurrency">X</button>
+                    <h3>Currency Converter</h3>
                 </div>
-                <div id="error-message"></div>
+                <div class="splitButton">
+                    <div class="currencies">
+
+                        <div class="currentCurrency">
+                            <label for="current-currency">Current Currency:</label>
+                            <input type="number" id="current-currency" value="0" class="currencyDisplayAmount">
+                            <select name="base-currency" id="base-currency" class="currencyDisplayAmount">
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="GBP">GBP</option>
+                                <option value="JPY">JPY</option>
+                                <option value="CNY">CNY</option>
+                            </select>
+                        </div>
+                        <div class="targetCurrency">
+                            Convert to:
+                            <select name="target-currency" id="target-currency" class="currencyDisplayAmount">
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="GBP">GBP</option>
+                                <option value="JPY">JPY</option>
+                                <option value="CNY">CNY</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="conversion-result">
+                        <p>Converted Amount:</p>
+                        <span id="converted-amount" class="currencyDisplayAmount" >...</span>
+                        <button id="convert-button" class="currencyDisplayAmount">Convert</button>
+                    </div>
+                    <div id="error-message"></div>
+                </div>
             </div>
             <div class="monthlyRevenueContainer containerShadow">
                 <div class="monthlyRevenue">
