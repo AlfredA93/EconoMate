@@ -52,9 +52,7 @@ main{
     margin-bottom: 2.5%;
     
 }
-#currency, #current-currency, #originalBudget, #totalBudget{
-    max-width: 75px;
-}
+
 
 #myChart{
     border-radius: 5px;
@@ -102,8 +100,8 @@ main{
     font-size: 2rem;
     font-weight: 600;
 }
-.toggle h3{
-}
+
+
 .slider {
     -webkit-appearance: none;
     width: 100px; /* Now this is the height */
@@ -117,6 +115,16 @@ main{
     margin-bottom: 20px;
     margin-top: 40px;
     border-radius: 10px;
+}
+
+#currency, #current-currency, #originalBudget, #totalBudget{
+    max-width: 75px;
+}
+.currency-container{
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+    margin-bottom: 2.5%;
 }
 
 .advice-container{
@@ -187,6 +195,24 @@ main{
 }
 .containerShadow{
     box-shadow: -4px 4px 0px rgba(28,101,112,1);
+}
+
+.currencyDisplayAmount {
+    /* Existing styles */
+    min-width: 75px;
+    text-align: center;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    font-family: 'Lexend', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    -webkit-appearance: none; /* For Chrome and Safari */
+    -moz-appearance: textfield; /* For Firefox */
+    font-family: "Wire One", sans-serif;
+    /* Inner shadow */
+    box-shadow:inset -3px 3px 0px #ab7919;
 }
 
 .displayAmount {
