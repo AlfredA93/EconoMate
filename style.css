@@ -6,6 +6,10 @@
     --white-color: #DFE0DF;
 }
 
+html{
+    overflow-x: hidden;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -14,6 +18,7 @@ body{
 }
 
 header{
+    width: 97%;
     margin: auto;
     display: flex;
     justify-content: end;
@@ -59,20 +64,19 @@ main{
     color: var(--text-color);
     padding: 1rem;
     border-radius: 10px;
-    width: 100%;
+    width: 97%;
 }
 .monthlyRevenue{
     font-family: "Wire One", sans-serif;
     font-size: 3rem;
     line-height: 0.3;
-    text-shadow: -3px 3px 0px var(--white-color);
 }
 .togglesContainer{
     display: flex;
     justify-content: center;
     margin-top: 1rem;
     flex-wrap: wrap;
-    width: 100%;
+    width: 97%;
     background-color: var(--secondary-color);
     border-radius: 10px;
     margin-top: 1rem;
@@ -121,7 +125,7 @@ main{
 }
 
 .advice-container, h3 {
-    width: 100%;
+    width: 97%;
     text-align: center;
 }
 
