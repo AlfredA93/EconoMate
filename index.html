@@ -10,6 +10,7 @@
     <title>Budget Calculator</title>
     <script src="https://kit.fontawesome.com/2a30a0d914.js" crossorigin="anonymous"></script>
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+
 </head>
 <body>
 
@@ -25,7 +26,7 @@
                 <label for="current-currency">Current Currency:</label>
                 <input type="number" id="current-currency" value="0">
             </span>
-            <select name="currency" id="currency">
+            <select name="base-currency" id="base-currency">
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
                 <option value="GBP">GBP</option>
@@ -35,15 +36,18 @@
             <span>
                 Convert to:
             </span>
-            <select name="currency" id="currency">
+            <select name="target-currency" id="target-currency">
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
                 <option value="GBP">GBP</option>
                 <option value="JPY">JPY</option>
                 <option value="CNY">CNY</option>
             </select>
-            <button>Convert</button>
-            <span>Converted amount goes here</span>
+            <button id="convert-button">Convert</button>
+            <div id="conversion-result">
+                <p>Converted Amount: <span id="converted-amount">...</span></p>
+            </div>
+            <div id="error-message"></div>
         </div>
             <div class="monthlyRevenueContainer containerShadow">
                 <div class="monthlyRevenue">
@@ -185,7 +189,7 @@
         </div> -->
     </main>
     
-
+    <script src="API.js"></script>
     <script src="script.js"></script>
     <script type="module" src="sliders.js"></script>
 </body>
