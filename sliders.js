@@ -16,7 +16,7 @@ let lockedSliders = [];
 // When the DOM is fully loaded, render the pie chart with fake values
 document.addEventListener('DOMContentLoaded', (event) => {
     // Define the categories and fake values
-    let categories = ["Housing", "Transportation", "Loan", "Living Groceries", "Healthcare", "Children", "Savings", "Bills", "Hobbies", "Holidays"];
+    let categories = ["Housing", "Transportation", "Loan", "Groceries", "Healthcare", "Children", "Savings", "Bills", "Hobbies", "Holidays"];
     let fakeValues = [20, 60, 5, 5, 1, 3, 2, 1, 2, 1]; // Adjust these values as needed
 
     // Render the pie chart with fake values
