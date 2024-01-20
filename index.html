@@ -202,11 +202,11 @@
       
         <script>
           const teamMembers = [
-            { name: "Aj", github: "https://github.com/ajmccredie" },
+            { name: "Aj", github: "https://github.com/ajmccredie", linkedin: "https://www.linkedin.com/in/aj-mccredie-757622290/"},
             { name: "Tanguy", github: "https://github.com/tlalexandre" },
             { name: "Alfred", github: "https://github.com/AlfredA93" },
             { name: "Yakiv", github: "https://github.com/YakivBrychuk" },
-            { name: "Dave T", github: "https://github.com/DaveTrev" },
+            { name: "Dave T", github: "https://github.com/DaveTrev", linkedin: "https://www.linkedin.com/in/davidtrevaskis" },
             { name: "Paul", github: "https://github.com/hughes84" },
             { name: "Oliver", github: "https://github.com/OMandila" },
           ];
@@ -220,6 +220,9 @@
               <h3>${member.name}</h3>
               <a href="${member.github}" target="_blank" aria-label="${member.name}'s github account">
                 <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="${member.linkedin}" target="_blank" aria-label="${member.name}'s linkedin account">
+                <i class="fa-brands fa-linkedin"></i>
               </a>
             `;
             footerContainer.appendChild(div);
