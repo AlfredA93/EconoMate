@@ -67,6 +67,90 @@ document.addEventListener('DOMContentLoaded', (event) => {
         return advice;
     }
 
+    function generateGroceriesAdvice(level) {
+        let advice = "";
+        if (level === "bunny") {
+            advice = "Bunny groceries advice: <br>";
+        } else if (level === "friend") {
+            advice = "Friend groceries advice: <br>";
+        } else if (level === "sociopath") {
+            advice = "Sociopath groceries advice: <br>";
+        }
+        return advice;
+    }
+
+    function generateHealthcareAdvice(level) {
+        let advice = "";
+        if (level === "bunny") {
+            advice = "Bunny healthcare spending advice: <br>";
+        } else if (level === "friend") {
+            advice = "Friend healthcare spending advice: <br>";
+        } else if (level === "sociopath") {
+            advice = "Sociopath healthcare spending advice: <br>";
+        }
+        return advice;
+    }
+
+    function generateBillsAdvice(level) {
+        let advice = "";
+        if (level === "bunny") {
+            advice = "Bunny bills advice: <br>";
+        } else if (level === "friend") {
+            advice = "Friend bills advice: <br>";
+        } else if (level === "sociopath") {
+            advice = "Sociopath bills advice: <br>";
+        }
+        return advice;
+    }
+
+    function generateChildrenAdvice(level) {
+        let advice = "";
+        if (level === "bunny") {
+            advice = "Bunny children spending advice: <br>";
+        } else if (level === "friend") {
+            advice = "Friend children spending advice: <br>";
+        } else if (level === "sociopath") {
+            advice = "Sociopath children spending advice: <br>";
+        }
+        return advice;
+    }
+
+    function generateSavingsAdvice(level) {
+        let advice = "";
+        if (level === "bunny") {
+            advice = "Bunny savings advice: <br>";
+        } else if (level === "friend") {
+            advice = "Friend savings advice: <br>";
+        } else if (level === "sociopath") {
+            advice = "Sociopath savings advice: <br>";
+        }
+        return advice;
+    }
+
+    function generateHobbiesAdvice(level) {
+        let advice = "";
+        if (level === "bunny") {
+            advice = "Bunny hobbies advice: <br>";
+        } else if (level === "friend") {
+            advice = "Friend hobbies advice: <br>";
+        } else if (level === "sociopath") {
+            advice = "Sociopath hobbies advice: <br>";
+        }
+        return advice;
+    }
+    
+    function generateHolidaysAdvice(level) {
+        let advice = "";
+        if (level === "bunny") {
+            advice = "Bunny holiday spending advice: <br>";
+        } else if (level === "friend") {
+            advice = "Friend holiday spending advice: <br>";
+        } else if (level === "sociopath") {
+            advice = "Sociopath holiday spending advice: <br>";
+        }
+        return advice;
+    }
+
     // Function to determine advice type based on user input percentages and thresholds
     function determineAdviceType(level, roundedPercentages) {
         // Define thresholds for different categories
@@ -76,6 +160,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const groceriesThreshold = 15;
         const healthcareThreshold = 10;
         const billsThreshold = 10;
+        const childrenTheshold = 50;
+        const savingsThreshold = 10; // This one is a minimum target to reach and the advice will need to be different
+        const hobbiesThreshold = 20;
+        const holidaysThreshold = 50;
 
         // Check if the Housing percentage exceeds the threshold
         if (roundedPercentages["Housing"] > housingThreshold) {
@@ -87,9 +175,37 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const transportationAdvice = generateTransportationAdvice(level, roundedPercentages["Transportation"]);
             return transportationAdvice;
         } else if(roundedPercentages["Loan"] > loanThreshold) {
-            // If the loan percentage exceeds the threshold, generate transportation advice
+            // If the loan percentage exceeds the threshold, generate loan advice
             const loanAdvice = generateLoanAdvice(level, roundedPercentages["Loan"]);
             return loanAdvice;
+        } else if(roundedPercentages["Groceries"] > groceriesThreshold) {
+            // If the groceries percentage exceeds the threshold, generate groceries advice
+            const groceriesAdvice = generateGroceriesAdvice(level, roundedPercentages["Groceries"]);
+            return groceriesAdvice;
+        } else if(roundedPercentages["Healthcare"] > healthcareThreshold) {
+            // If the healthcare percentage exceeds the threshold, generate healthcare advice
+            const healthcareAdvice = generateHealthcareAdvice(level, roundedPercentages["Healthcare"]);
+            return healthcareAdvice;
+        } else if(roundedPercentages["Bills"] > billsThreshold) {
+            // If the bills percentage exceeds the threshold, generate bills advice
+            const billsAdvice = generateBillsAdvice(level, roundedPercentages["Bills"]);
+            return billsAdvice;
+        } else if(roundedPercentages["Children"] > childrenTheshold) {
+            // If the child spending percentage exceeds the threshold, generate child spending advice
+            const childrenAdvice = generateChildrenAdvice(level, roundedPercentages["Children"]);
+            return childrenAdvice;
+        } else if(roundedPercentages["Savings"] < savingsThreshold) {
+            // If the savings percentage is lower than the threshold, generate savings advice
+            const savingsAdvice = generateSavingsAdvice(level, roundedPercentages["Savings"]);
+            return savingsAdvice;
+        } else if(roundedPercentages["Hobbies"] > hobbiesThreshold) {
+            // If the hobbies percentage exceeds the threshold, generate hobbies advice
+            const hobbiesAdvice = generateHobbiesAdvice(level, roundedPercentages["Hobbies"]);
+            return hobbiesAdvice;
+        } else if(roundedPercentages["Holidays"] > holidaysThreshold) {
+            // If the holidays percentage exceeds the threshold, generate holidays advice
+            const holidaysAdvice = generateHolidaysAdvice(level, roundedPercentages["Holidays"]);
+            return holidaysAdvice;
         } else {
             // If no thresholds are triggered, return generic advice based on the level
             if (level === "bunny") {
