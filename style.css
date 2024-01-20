@@ -151,6 +151,13 @@ main{
     border: 2px solid var(--primary-color);
 }
 
+.advice-buttons{
+    width: 100%;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Important: remove default styles */
     appearance: none;

@@ -155,7 +155,8 @@ export function adjustSliders(slider, unlockedSliders, totalBudgetInput, origina
 export function displaySliderValues(allSliders, totalBudgetInput, originalTotalBudget) {
     // Convert the total budget input value to a number
     let totalBudget = Number(totalBudgetInput.value);
-
+     
+    percentages = []
     // Initialize an array to hold the percentages of each slider
 
 
