@@ -253,26 +253,28 @@ export function renderPieChart(budgetAmounts, categories) {
 
     // Define the configuration for the pie chart
     let myConfig = {
-        type: 'pie',  // The type of chart
+        type: 'pie',
         title: {
-            text: 'Budget Distribution',  // The title of the chart
-            fontFamily: 'Wire One',  // The font for the title
-            fontSize: 60,  // The font size for the title
+            text: 'Budget Distribution',
+            fontFamily: 'Wire One',
+            fontSize: 60,
         },
-        series: series,  // The series data for the chart
+        series: series,
         plot: {
-            sizeFactor: 100,  // The size of the chart
+            sizeFactor: 100,
             tooltip: {
-                text: "%t: %v (%npv%)",  // The format for the tooltip text
-                decimals: 2,  // The number of decimal places to display in the tooltip
-                thousandSeparator: ","  // The thousand separator for the tooltip
+                text: "%t: %v (%npv%)",
+                decimals: 2,
+                thousandSeparator: ","
             },
             valueBox: {
-                placement: 'out',  // The placement of the value box
-                text: '%t\n%npv%',  // The format for the value box text
-                fontSize: 20,  // The font size for the value box
+                placement: 'out',
+                text: '%t\n%npv%',
+                fontSize: 20,
+                visible: true,
             },
         },
+        
     };
 
     // Render the chart with the given configuration
@@ -280,4 +282,27 @@ export function renderPieChart(budgetAmounts, categories) {
         id: 'myChart',  // The id of the element to render the chart in
         data: myConfig  // The configuration for the chart
     });
+
+
+    // Function to update the chart configuration based on the viewport width
+    function updateChartConfig() {
+        // Get the current viewport width
+        var viewportWidth = window.innerWidth;
+        console.log(viewportWidth)
+
+        // Update the valueBox visibility based on the viewport width
+        myConfig.plot.valueBox.visible = viewportWidth >= 768;
+        console.log(myConfig.plot.valueBox.visible)
+
+        // Update the chart with the new configuration
+        zingchart.exec('myChart', 'setdata', {
+            data: myConfig
+        });
+    }
+
+    // Update the chart configuration when the window is resized
+    window.addEventListener('resize', updateChartConfig);
+
+    // Update the chart configuration initially
+    updateChartConfig();
 }
