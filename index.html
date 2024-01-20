@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,45 +13,46 @@
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
     <title>Budget Busters</title>
 </head>
+
 <body>
     <header>
         <h1 class="heroTitle text-shadow">Budget Busters</h1>
     </header>
     <main>
         <div class="budget-container">
-        <div class="advice-container togglesContainer containerShadow">
-            <h3>Currency Converter</h3>
-            <span>
-                <label for="current-currency">Current Currency:</label>
-                <input type="number" id="current-currency" value="0">
-            </span>
-            <select name="currency" id="currency">
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="GBP">GBP</option>
-                <option value="JPY">JPY</option>
-                <option value="CNY">CNY</option>
-            </select>
-            <span>
-                Convert to:
-            </span>
-            <select name="currency" id="currency">
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="GBP">GBP</option>
-                <option value="JPY">JPY</option>
-                <option value="CNY">CNY</option>
-            </select>
-            <button>Convert</button>
-            <span>Converted amount goes here</span>
-        </div>
+            <div class="advice-container togglesContainer containerShadow">
+                <h3>Currency Converter</h3>
+                <span>
+                    <label for="current-currency">Current Currency:</label>
+                    <input type="number" id="current-currency" value="0">
+                    <select name="currency" id="currency">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="JPY">JPY</option>
+                        <option value="CNY">CNY</option>
+                    </select>
+                </span>
+                <span>
+                    Convert to:
+                    <select name="currency" id="currency">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="JPY">JPY</option>
+                        <option value="CNY">CNY</option>
+                    </select>
+                </span>
+                <button>Convert</button>
+                <span>Converted amount goes here</span>
+            </div>
             <div class="monthlyRevenueContainer containerShadow">
                 <div class="monthlyRevenue">
                     <h2>Monthly Revenue</h2>
                     <label for="originalBudget">Starting Budget:</label>
-                    <input type="number" id="originalBudget">
-                    <label for="totalBudget">Remaining Budget</label>
-                    <input type="number" id="totalBudget">
+                    <input type="number" id="originalBudget" class="displayAmount">
+                    <label for="totalBudget">Remaining Budget:</label>
+                    <input type="number" id="totalBudget" class="displayAmount">
                 </div>
             </div>
             <div class="pie-chart">
@@ -59,72 +61,82 @@
             <div class="togglesContainer containerShadow">
                 <div class="toggle">
                     <h3>Housing</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Transportation</h3>
-                    <input type="range" min="0" max="100" value="0"  step="0.01" class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Loan</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"  id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Groceries</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Healthcare</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€" >
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Children</h3>
-                    <input type="range" min="0" max="100" value="0"  step="0.01" class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Savings</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01"  class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Bills</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Hobbies</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow" id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€">
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
                 <div class="toggle">
                     <h3>Travel</h3>
-                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"  id="myRange">
+                    <input type="range" min="0" max="100" value="0" step="0.01" class="slider containerShadow"
+                        id="myRange">
                     <p>Amount:</p>
-                    <input type="number"  class="displayAmount" placeholder="€" >
+                    <input type="number" class="displayAmount" placeholder="€">
                     <button class="lockButton"><i class="fa-solid fa-unlock lock-icon"></i></button>
                 </div>
             </div>
@@ -138,10 +150,8 @@
             </div>
         </div>
     </main>
-    
-
     <!-- <script src="script.js"></script> -->
     <script type="module" src="sliders.js"></script>
 </body>
-</html>
 
+</html>

@@ -52,6 +52,9 @@ main{
     margin-bottom: 2.5%;
     
 }
+#currency, #current-currency, #originalBudget, #totalBudget{
+    max-width: 75px;
+}
 
 #myChart{
     border-radius: 5px;
