@@ -80,10 +80,10 @@ main{
     margin-top: 1rem;
     flex-wrap: wrap;
     width: 97%;
-    background-color: var(--secondary-color);
-    border-radius: 10px;
     margin-top: 1rem;
     padding: 1rem;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
     color: var(--text-color);
 }
 .toggle{
@@ -118,7 +118,7 @@ main{
     margin-top: 40px;
     border-radius: 10px;
 }
-/* 
+
 .advice-container{
     display:flex;
     justify-content: space-evenly;
@@ -126,14 +126,22 @@ main{
     align-items: center;
     margin-top: 2.5%;
     margin-bottom: 2.5%;
+    font-family: "Wire One", sans-serif;
+    line-height: 40px;
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    color: var(--text-color);
+    
 }
-
+#adviceDiv{
+    font-size: 2.4rem;
+}
 .advice-container, h3  {
     width: 97%;
-    font-family: "Wire One", sans-serif;
     font-size: 3rem;
     text-align: center;
     margin-bottom: 10px;
+    padding-bottom: 20px; 
 }
 
 .advice-heading {
@@ -143,7 +151,7 @@ main{
 .advice-button {
     font-family: "Wire One", sans-serif;
     color: var(--text-color);
-    background-color: var(--accent-color);
+    background-color: var(--white-color);
     font-size: 2rem;
     font-weight: bolder;
     padding: 10px;
@@ -156,7 +164,7 @@ main{
     margin-bottom: 18px;
     display: flex;
     justify-content: space-evenly;
-} */
+}
 
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Important: remove default styles */
@@ -230,35 +238,32 @@ main{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    right: 0; /* Position at the right edge of the screen */
+    top: 30%; /* Position at the vertical center of the screen */
+    transform: translateY(-50%); /* Adjust for modal's own dimensions */
+    width: 25%; /* Half of the screen width */
+    height: 50%; /* Full height */
+
 }
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+    
+    color:var(--text-color);
+    font-size: 3rem;
     font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: var(--white-color);
     text-decoration: none;
     cursor: pointer;
 }
@@ -269,7 +274,7 @@ main{
     bottom: 0;
     right: 0;
     margin: 20px;
-    width: 200px;
+    width: 150px;
     height: 100px;
     background-color: var(--accent-color);
     font-family: "Wire One", sans-serif;
