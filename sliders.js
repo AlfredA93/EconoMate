@@ -30,15 +30,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const roundedPercentages = {};
     
 
-    // Define the generateHousingAdvice function
+    // Define the advice functions
     function generateHousingAdvice(level) {
         let advice = "";
         if (level === "bunny") {
-            advice = "Bunny housing advice: Consider finding a more affordable place or sharing expenses.";
+            advice = "Bunny housing advice: <br>Consider finding a more affordable place or sharing expenses.";
         } else if (level === "friend") {
-            advice = "Friend housing advice: Your housing expenses are rather high. You're going to need to look into ways to reduce these.<br>Maybe consider renting some of your un-used space?";
+            advice = "Friend housing advice: <br>Your housing expenses are rather high. You're going to need to look into ways to reduce these.<br>Maybe consider renting some of your un-used space?";
         } else if (level === "sociopath") {
-            advice = "Sociopath housing advice: Converting a van or moving in a whole load of lodgers are looking like strong options for you right now.";
+            advice = "Sociopath housing advice: <br>Converting a van or moving in a whole load of lodgers are looking like strong options for you right now.";
         }
         return advice; 
     }
@@ -46,11 +46,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
     function generateTransportationAdvice(level) {
         let advice = "";
         if (level === "bunny") {
-            advice = "Bunny transportation advice: Your transportation expenses are higher than recommended. Consider using public transportation or carpooling to save money.";
+            advice = "Bunny transportation advice: <br>Your transportation expenses are higher than recommended. <br>Consider using public transportation or carpooling to save money.";
         } else if (level === "friend") {
-            advice = "Friend transportation advice: Your transportation costs are a bit high. Look for ways to reduce these expenses, like using a more fuel-efficient vehicle or biking for short trips.";
+            advice = "Friend transportation advice: <br>Your transportation costs are a bit high. <br>Look for ways to reduce these expenses, like using a more fuel-efficient vehicle or biking for short trips.";
         } else if (level === "sociopath") {
-            advice = "Sociopath transportation advice: Your transportation spending is off the charts. It's time to sell that luxury car and start taking the bus. And if you can't afford the bus, it's time to start cycling or skateboarding!";
+            advice = "Sociopath transportation advice: <br>Your transportation spending is off the charts. <br>It's time to sell that luxury car and start taking the bus. <br>And if you can't afford the bus, it's time to start cycling or skateboarding!";
+        }
+        return advice;
+    }
+
+    function generateLoanAdvice(level) {
+        let advice = "";
+        if (level === "bunny") {
+            advice = "Bunny loan advice: <br>Consider applying for a loan with lower interest rates to reduce your overall debt burden. <br>It's always hard when you're trying to clear debt, but help is available.";
+        } else if (level === "friend") {
+            advice = "Friend loan advice: <br>Your current loans may have high interest rates. <br>Look into refinancing options to lower your monthly payments.";
+        } else if (level === "sociopath") {
+            advice = "Sociopath loan advice: <br>What on earth did you need all those loans for?! <br>You're on the brink potential financial catastrophe. <br>Consider selling a kidney, or at very least any of your un-used junk to reduce the debts as fast as possible!";
         }
         return advice;
     }
@@ -60,6 +72,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Define thresholds for different categories
         const housingThreshold = 40; 
         const transportationThreshold = 15;
+        const loanThreshold = 15;
+        const groceriesThreshold = 15;
+        const healthcareThreshold = 10;
+        const billsThreshold = 10;
 
         // Check if the Housing percentage exceeds the threshold
         if (roundedPercentages["Housing"] > housingThreshold) {
@@ -70,6 +86,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
             // If the transportation percentage exceeds the threshold, generate transportation advice
             const transportationAdvice = generateTransportationAdvice(level, roundedPercentages["Transportation"]);
             return transportationAdvice;
+        } else if(roundedPercentages["Loan"] > loanThreshold) {
+            // If the loan percentage exceeds the threshold, generate transportation advice
+            const loanAdvice = generateLoanAdvice(level, roundedPercentages["Loan"]);
+            return loanAdvice;
         } else {
             // If no thresholds are triggered, return generic advice based on the level
             if (level === "bunny") {
