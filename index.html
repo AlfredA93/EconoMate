@@ -145,15 +145,21 @@
             <div class="pie-chart">
                 <div id="myChart"></div>
             </div>
-            <div class="advice-container togglesContainer containerShadow">
-                <h3>Would you like advice on your expenditure?</h3>
-                <h3>How brave are you?</h3>
-                <div class="advice-buttons">
-                    <button id="bunnyButton">Bunny</button>
-                    <button id="friendButton">Friend</button>
-                    <button id="sociopathButton">Sociopath</button>
+            <button id="showModalButton" class="containerShadow">Show Advice</button>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="advice-container togglesContainer containerShadow">
+                        <h3>Would you like advice on your expenditure?</h3>
+                        <h3>How brave are you?</h3>
+                        <div class="advice-buttons">
+                            <button id="bunnyButton">Bunny</button>
+                            <button id="friendButton">Friend</button>
+                            <button id="sociopathButton">Sociopath</button>
+                        </div>
+                        <div id="adviceDiv"></div>
+                    </div>
                 </div>
-                <div id="adviceDiv"></div>
             </div>
         </div>
     </main>

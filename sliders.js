@@ -12,6 +12,27 @@ let originalTotalBudget = { value: Number(totalBudgetInput.value) };
 let percentagesParagraph = document.querySelector('.percentages');
 let unlockedSliders = [...allSliders];
 let lockedSliders = [];
+let modal=document.getElementById("myModal");
+let closeButton=document.querySelector(".close");
+
+closeButton.addEventListener("click", function() {
+    modal.style.display="none";
+
+});
+
+// Function to check if all sliders are locked
+function checkAllSlidersLocked() {
+    // If all sliders are locked
+    if (lockedSliders.length === allSliders.length) {
+        // Show the modal
+        showModalButton.style.display = "block";
+    }
+}
+
+// When the button is clicked, show the modal
+showModalButton.addEventListener('click', function() {
+    modal.style.display = "block";
+});
 
 // When the DOM is fully loaded, render the pie chart with fake values
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -305,7 +326,9 @@ originalBudget.addEventListener('change', function() {
 // Add a click event listener to each lock button to toggle the lock
 lockButtons.forEach((lockButton, index) => {
     lockButton.addEventListener('click', function() {
-        toggleLock(this, index, allSliders, unlockedSliders, lockedSliders, totalBudgetInput,originalTotalBudget);
+        toggleLock(this, index, allSliders, unlockedSliders, lockedSliders, totalBudgetInput, originalTotalBudget);
+        // Check if all sliders are locked after toggling
+        checkAllSlidersLocked();
     });
 });
 
