@@ -331,7 +331,7 @@ margin-left: 10px;
 }
 #converted-amount{
     width: 100%;
-    display: flex;
+    display: block;
     text-align: center;
     background-color: var(--accent-color);
     color: var(--text-color);
