@@ -21,16 +21,16 @@ In this section, we will briefly discuss how our team addressed the applicable c
 
 # ABOUT SUBMISSION
 ## Intro
-The Budget Busters is a personal finance management app designed and developed as part of the Code Institute Hackathon activity for January 2024. It is a fun and engaging way for users to develop and interact with their financial budget.
+The EconoMate is a personal finance management app designed and developed as part of the Code Institute Hackathon activity for January 2024. It is a fun and engaging way for users to develop and interact with their financial budget. The application also provides currency converter and budget advisory features to users.
 
 ## Goal
-The Budget Buster was developed to encourage the positive but often overlooked practice of financial planning and budgeting. It addresses the following aspects:
+The EconoMate was developed to encourage the positive but often overlooked practice of financial planning and budgeting. It addresses the following aspects:
 
 - ➡️ Problem Statement
     - 
     In today's fast-paced world, managing personal finances often takes a backseat, leading to financial stress and insecurity.
     
-    The Budget Busters is designed to address the gap in an easy-to-use and engaging financial planning tool that caters to both beginners and seasoned budgeters.
+    The EconoMate is designed to address the gap in an easy-to-use and engaging financial planning tool that caters to both beginners and seasoned budgeters.
 
 - ➡️ Objective(s)
     -
@@ -39,6 +39,7 @@ The Budget Buster was developed to encourage the positive but often overlooked p
     - To offer a budgeting solution that caters to the most common financial goals.
     - To integrate real-time budget data analysis for informed decision-making.
     - To enable users to stay abreast with forex through an in-built currency converter.
+    - To provide budget advise to users depending on the budget allocation they provide.
 
 - ➡️ Target Audience
     -
@@ -46,6 +47,17 @@ The Budget Buster was developed to encourage the positive but often overlooked p
     - young adults starting their financial journey,
     - families looking to manage household budgets, and
     - professionals seeking an efficient way to analyze their spending and savings.
+
+- ➡️ Features
+    -
+    These are the features of the EconoMate app:
+    - Currency converter
+    - Budget amount entry box
+    - Budget definition toggles
+    - Budget distribution
+    - Budget advisor
+    - Footer with details of the EconoMate Team
+
 
 - ➡️ Benefits
     -
@@ -56,19 +68,24 @@ The Budget Buster was developed to encourage the positive but often overlooked p
     - Offers targeted advise based on a user's budget allocation.
 
 ## Tech
-The Budget Busters application uses the following technology stack and dependencies:
+The EconoMate application uses the following technology stack and dependencies:
 - HTML5
 - CSS3
 - JavaScript
 - ZingChart
 
 ## How it works
-
+1. Enter your starting budget number
+2. Adjust the sliders to allocate and lock-in the budget
+3. Ensure the remaining budget number is allocated
+4. Review the pie chart report and confirm that your budget is perfect
+5. Select the Show Advice button for expert opinion on your budget allocation
+6. Always keep an eye on the Forex using the Currency Converter
 
 ## Future enhancements
-In subsequent iterations of the Budget Busters, users will be enabled to:
+In subsequent iterations of the EconoMate, users will be enabled to:
 - Create new categories for their budget allocation
-- Add expenses against budget allocation to tract them in real-time
+- Add expenses against budget allocation to track them in real-time
 - 
 
 ## Credits
