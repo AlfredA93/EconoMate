@@ -253,11 +253,16 @@ export function renderPieChart(budgetAmounts, categories) {
 
     // Define the configuration for the pie chart
     let myConfig = {
+        backgroundColor: '#1F8275',
         type: 'pie',
+        contextMenu: {
+            visible: false
+        },
         title: {
             text: 'Budget Distribution',
             fontFamily: 'Wire One',
             fontSize: 60,
+            fontColor: '#2F4858;',
         },
         series: series,
         plot: {
@@ -288,11 +293,9 @@ export function renderPieChart(budgetAmounts, categories) {
     function updateChartConfig() {
         // Get the current viewport width
         var viewportWidth = window.innerWidth;
-        console.log(viewportWidth)
 
         // Update the valueBox visibility based on the viewport width
         myConfig.plot.valueBox.visible = viewportWidth >= 768;
-        console.log(myConfig.plot.valueBox.visible)
 
         // Update the chart with the new configuration
         zingchart.exec('myChart', 'setdata', {
