@@ -15,10 +15,6 @@ let lockedSliders = [];
 let modal = document.getElementById("myModal");
 let closeButton = document.querySelector(".close");
 
-closeButton.addEventListener("click", function () {
-    modal.style.display = "none";
-
-});
 
 // Function to check if all sliders are locked
 function checkAllSlidersLocked() {
@@ -30,10 +26,37 @@ function checkAllSlidersLocked() {
 }
 
 // When the button is clicked, show the modal
-showModalButton.addEventListener('click', function () {
-    modal.style.display = "block";
+// showModalButton.addEventListener('click', function () {
+//    modal.style.display = "block";
+
+
+document.getElementById('show-popup-button').addEventListener('click', function() {
+    let container = document.querySelector('.currency-container');
+    if (container.classList.contains('visible')) {
+        container.classList.remove('visible');
+    } else {
+        container.classList.add('visible');
+    }
+
 });
 
+document.getElementById('close-popup-button').addEventListener('click', function() {
+    document.querySelector('.currency-container').classList.remove('visible');
+});
+
+
+closeButton.addEventListener("click", function() {
+    modal.style.display="none";
+
+});
+
+showModalButton.addEventListener('click', function() {
+    if (modal.style.display === "block") {
+        modal.style.display = "none";
+    } else {
+        modal.style.display = "block";
+    }
+});
 // When the DOM is fully loaded, render the pie chart with fake values
 document.addEventListener('DOMContentLoaded', (event) => {
     // Define the categories and fake values
@@ -359,8 +382,7 @@ originalBudget.addEventListener('change', function () {
 lockButtons.forEach((lockButton, index) => {
     lockButton.addEventListener('click', function () {
         toggleLock(this, index, allSliders, unlockedSliders, lockedSliders, totalBudgetInput, originalTotalBudget);
-        // Check if all sliders are locked after toggling
-        checkAllSlidersLocked();
+
     });
 });
 

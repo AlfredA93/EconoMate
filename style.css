@@ -68,15 +68,36 @@ main{
     color: var(--text-color);
     padding: 1rem;
     border-radius: 10px;
-    width: 97%;
+    width: 98%;
 }
 .monthlyRevenue{
     font-family: "Wire One", sans-serif;
     font-size: 3rem;
     line-height: 0.3;
+    width: 100%;
+}
+.budgetInputContainer{
+    display: flex;
+    justify-content: space-around;
+    font-weight: 600;
+}
+.originalBudgetContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+}
+.totalBudgetContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+}
+.budgetInputContainer input{
+    width: 50%;
 }
 .togglesContainer{
-    margin-top: 1rem;
+
     width: 100%;
     margin-top: 1rem;
     padding: 0.2rem;
@@ -89,7 +110,7 @@ main{
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background-color: var(--white-color);
     margin: 0.5rem auto;
     border-radius: 10px;
@@ -100,30 +121,30 @@ main{
     font-size: 2rem;
     font-weight: 600;
 }
-
+.toggle h3{
+margin-left: 10px;
+}
+.amountContainer{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
 .slider {
     -webkit-appearance: none;
-    width: 100px; /* Now this is the height */
+    width: 30%; /* Now this is the height */
     height: 30px; /* Now this is the width */
     background: var(--text-color);
     outline: none;
     opacity: 1;
     -webkit-transition: .2s;
     transition: opacity .2s;
-    /* transform: rotate(90deg) scaleX(-1); Rotate and flip the slider */
     border-radius: 10px;
+    margin-right: 10px;
+ 
 }
 
-#currency, #current-currency, #originalBudget, #totalBudget{
-    max-width: 75px;
-}
-.currency-container{
-    display:flex;
-    justify-content:space-evenly;
-    align-items: center;
-    margin-bottom: 2.5%;
-}
 
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Important: remove default styles */
@@ -146,6 +167,85 @@ main{
 }
 .containerShadow{
     box-shadow: -4px 4px 0px rgba(28,101,112,1);
+}
+
+#currency, #current-currency, #originalBudget, #totalBudget{
+    /* max-width: 75px; */
+}
+.titleCurrency{
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 97%;
+    font-size: 2rem;
+    
+}
+.splitButton{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+}
+.currencies{
+    width: 50%;
+    font-weight: 600;
+    font-size: 1.7rem;
+    background-color: var(--white-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.currency-container{
+    display: none;
+    position: fixed;
+    top: 10%;
+    left:2%;
+    width: 20%;
+}
+
+
+.currency-container.visible {
+    display: block;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Wire One", sans-serif;
+
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    color: var(--text-color);
+
+}
+
+.currencyButton{
+    display:block;
+    z-index: 10;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0 0 20px 20px;
+    width: 10%;
+    min-width: 70px;
+    height: 15%;
+    max-height: 100px;
+    background-color: var(--accent-color);
+    font-family: "Wire One", sans-serif;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+}
+.closeCurrency{
+    width: 10%;
+    height: 20px;
+    background-color: var(--accent-color);
+    font-family: "Wire One", sans-serif;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
 }
 .advice-container{
     display:flex;
@@ -211,32 +311,10 @@ main{
     justify-content: space-evenly;
 }
 
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Important: remove default styles */
-    appearance: none;
-    width: 25px;
-    height: 50px;
-    background: var(--accent-color); /* Change the color */
-    border-radius: 10px; /* Make it circular */
-    cursor: pointer;
-    box-shadow: -4px 4px 0px rgba(28,101,112,1);
-}
-.slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    background: #4CAF50;
-    cursor: pointer;
-}
-.text-shadow{
-    text-shadow: 0px 9px 0px rgba(28,101,112,0.75);  ;
-}
-.containerShadow{
-    box-shadow: -4px 4px 0px rgba(28,101,112,1);
-}
 
 .currencyDisplayAmount {
-    /* Existing styles */
-    min-width: 75px;
+    display: block;
+    width: 70%;
     text-align: center;
     background-color: var(--accent-color);
     color: var(--text-color);
@@ -250,6 +328,55 @@ main{
     font-family: "Wire One", sans-serif;
     /* Inner shadow */
     box-shadow:inset -3px 3px 0px #ab7919;
+}
+#converted-amount{
+    width: 100%;
+    display: flex;
+    text-align: center;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    font-family: 'Lexend', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    -webkit-appearance: none; /* For Chrome and Safari */
+    -moz-appearance: textfield; /* For Firefox */
+    font-family: "Wire One", sans-serif;
+    /* Inner shadow */
+    box-shadow:inset -3px 3px 0px #ab7919;
+}
+#convert-button{
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    font-family: 'Lexend', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 10px;
+    -webkit-appearance: none; /* For Chrome and Safari */
+    -moz-appearance: textfield; /* For Firefox */
+    font-family: "Wire One", sans-serif;
+    /* Inner shadow */
+    box-shadow:inset -3px 3px 0px #ab7919;
+}
+
+#conversion-result{
+    width: 50%;
+    font-weight: 600;
+    font-size: 1.7rem;
+    background-color: var(--white-color);
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid var(--primary-color);
+}
+
+#conversion-result p{
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .displayAmount {
@@ -273,6 +400,7 @@ main{
 .displayAmount {
     /* Existing styles */
     width: 20%;
+    min-width: 25px;
     height: 20px;
     text-align: center;
     background-color: var(--accent-color);
@@ -356,25 +484,61 @@ main{
     bottom: 0;
     right: 0;
     margin: 20px;
-    width: 150px;
-    height: 100px;
+    width: 10%;
+    min-width: 70px;
+    height: 15%;
+    max-height: 100px;
     background-color: var(--accent-color);
     font-family: "Wire One", sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     border-radius: 10px;
     font-weight: 600;
     transition : 1s ease;
 }
 
+.footer-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #63bbfffc;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .footer-main > div {
+    flex: 1;
+    margin: 10px;
+  }
+
+  .footer-main a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 10px;
+}
+
+.footer-main a:hover {
+    color: #ffa500;
+    cursor: pointer;
+}
+
+.footer-main h3 {
+    color: white;
+  }
+
 @media screen and (max-width: 768px) {
     .heroTitle{
         font-size: 3rem;
-        width: 80%;
-        margin: 0 auto;
+        width: 90%;
+        margin-top: 5px;
         margin-bottom: 20px;
     }
     .monthlyRevenueContainer{
-        padding: 0.5rem;
+        width: 95%;
+        margin: 0 auto;
+        margin-bottom: 20px;
     }
     .monthlyRevenue{
         font-size: 2rem;
@@ -382,15 +546,30 @@ main{
     }
 
     .togglesContainer{
-        margin: 0.5rem;
+        width: 100%;
+        margin: 0 auto;
+        margin-right: 0px;
     }
     .toggle{
         width: 90%;
-        font-size: 1.1rem;
+        font-size: 1.8rem;
+    }
+    .toggle p{
+        display: none;
+    }
+    .amountContainer{
+        width: 80%;
     }
     .slider{
         width: 80px;
         height: 10px;
         margin: 0 20px;
+    }
+    .lockButton{
+        width: 40px;
+        height: 40px;
+    }
+    .currency-container{
+        width: 70%;
     }
 }
