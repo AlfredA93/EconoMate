@@ -1,25 +1,28 @@
-# Hackathon-Calculator
-
-<h1 align="center"><strong>💲💲💲 Budget Busters: New Year, New Numbers 💲💲💲</strong></h1>
+<h1 align="center"><strong>💲💲💲 Code Institute Hackathon 💲💲💲</strong></h1>
+<h2 align="center"><strong>💲💲💲 Budget Busters: New Year, New Numbers 💲💲💲</strong></h2>
 
 <img src="https://res.cloudinary.com/djdefbnij/image/upload/v1705314715/Hackathons/Screenshot_2024-01-15_at_10.27.38_rc7lor.png" alt="BudgetBustersBanner" width="1200"/>
 
 <br>
 
-# SUBMISSION
+# Submission - EconoMate
+
+
+<img src="assets/economate.png" alt="BudgetBustersBanner" width="1200"/>
+
 ## Deployment
 The project is deployed and can be accessed at [https://alfreda93.github.io/Hackathon-Calculator/](https://alfreda93.github.io/Hackathon-Calculator/).
 
 ## Criteria
 In this section, we will briefly discuss how our team addressed the applicable criteria:
 
-- 💲 The project has a creative design that enhances user-experience
-- 💲 The project is finance related and has a real world use case
+- 💲 The project has a creative design that enhances user experience
+- 💲 The project is finance related and has a real-world use case
 - 💲 The project is Responsive and accessible on different screen sizes
 - 💲 The project is well-planned using GitHub Projects
-- 💲 The project has a well documented README based on the provided template.
+- 💲 The project has a well-documented README based on the provided template.
 
-# ABOUT SUBMISSION
+# About Submission
 ## Intro
 The EconoMate is a personal finance management app designed and developed as part of the Code Institute Hackathon activity for January 2024. It is a fun and engaging way for users to develop and interact with their financial budget. The application also provides currency converter and budget advisory features to users.
 
@@ -39,7 +42,7 @@ The EconoMate was developed to encourage the positive but often overlooked pract
     - To offer a budgeting solution that caters to the most common financial goals.
     - To integrate real-time budget data analysis for informed decision-making.
     - To enable users to stay abreast with forex through an in-built currency converter.
-    - To provide budget advise to users depending on the budget allocation they provide.
+    - To provide budget advice to users depending on the budget allocation they provide.
 
 - ➡️ Target Audience
     -
@@ -76,7 +79,7 @@ The EconoMate application uses the following technology stack and dependencies:
 
 ## How it works
 1. Enter your starting budget number
-2. Adjust the sliders to allocate and lock-in the budget
+2. Adjust the sliders to allocate and lock in the budget
 3. Ensure the remaining budget number is allocated
 4. Review the pie chart report and confirm that your budget is perfect
 5. Select the Show Advice button for expert opinion on your budget allocation
@@ -86,7 +89,6 @@ The EconoMate application uses the following technology stack and dependencies:
 In subsequent iterations of the EconoMate, users will be enabled to:
 - Create new categories for their budget allocation
 - Add expenses against budget allocation to track them in real-time
-- 
 
 ## Credits
 Below are the sources used:
