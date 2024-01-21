@@ -19,7 +19,7 @@
         <h1 class="heroTitle text-shadow">EconoMate</h1>
     </header>
     <main>
-        <button id="show-popup-button" class="currencyButton">Currency Converter</button>
+        <button id="show-popup-button" class="currencyButton modalScript">Currency Converter</button>
             <div class="currency-container containerShadow">
                 <div class="titleCurrency">
                     <button id="close-popup-button" class="closeCurrency">X</button>
@@ -186,7 +186,7 @@
             <div class="pie-chart">
                 <div id="myChart"></div>
             </div>
-            <button id="showModalButton">Show Advice</button>
+            <button id="showModalButton" class="modalScript">Show Advice</button>
             <div id="myModal" class="modal">
                 <div class="modal-content">
                     <div class="advice-container  containerShadow">
@@ -207,39 +207,69 @@
     <footer>
         <div class="footer-main" id="footer-container"></div>
       
-        <script>
-          const teamMembers = [
-            { name: "Aj", github: "https://github.com/ajmccredie", linkedin: "https://www.linkedin.com/in/aj-mccredie-757622290/"},
-            { name: "Tanguy", github: "https://github.com/tlalexandre", linkedin:"" },
-            { name: "Alfred", github: "https://github.com/AlfredA93", linkedin:"" },
-            { name: "Yakiv", github: "https://github.com/YakivBrychuk", linkedin: "https://www.linkedin.com/in/yakiv-b-250831a4/"},
-            { name: "Dave T", github: "https://github.com/DaveTrev", linkedin: "https://www.linkedin.com/in/davidtrevaskis" },
-            { name: "Paul", github: "https://github.com/hughes84", linkedin:"" },
-            { name: "Oliver", github: "https://github.com/OMandila", linkedin: ""},
-          ];
-      
-          const footerContainer = document.getElementById("footer-container");
-      
-          teamMembers.forEach((member, index) => {
-            const div = document.createElement("div");
-            div.className = `footer-${index + 1}`;
-            div.innerHTML = `
-              <h3>${member.name}</h3>
-              <a href="${member.github}" target="_blank" aria-label="${member.name}'s github account">
-                <i class="fa-brands fa-github"></i>
-              </a>
-              <a href="${member.linkedin}" target="_blank" aria-label="${member.name}'s linkedin account">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-            `;
-            footerContainer.appendChild(div);
-          });
-        </script>
+        
       </footer>
 
     <script src="API.js"></script>
 
     <script type="module" src="sliders.js"></script>
+
+    <script>
+        const teamMembers = [
+          { name: "Aj", github: "https://github.com/ajmccredie", linkedin: "https://www.linkedin.com/in/aj-mccredie-757622290/"},
+          { name: "Tanguy", github: "https://github.com/tlalexandre", linkedin:"https://www.linkedin.com/in/tanguy-l-alexandre-a72694272/" },
+          { name: "Alfred", github: "https://github.com/AlfredA93", linkedin:"https://www.linkedin.com/in/alfredayre/" },
+          { name: "Yakiv", github: "https://github.com/YakivBrychuk", linkedin: "https://www.linkedin.com/in/yakiv-b-250831a4/"},
+          { name: "Dave T", github: "https://github.com/DaveTrev", linkedin: "https://www.linkedin.com/in/davidtrevaskis" },
+          { name: "Paul", github: "https://github.com/hughes84", linkedin:"https://www.linkedin.com/in/paul-hughes-2a6194242/" },
+          { name: "Oliver", github: "https://github.com/OMandila", linkedin: "https://www.linkedin.com/in/oliver-mandila/"},
+        ];
+    
+        const footerContainer = document.getElementById("footer-container");
+    
+        teamMembers.forEach((member, index) => {
+          const div = document.createElement("div");
+          div.className = `footer-${index + 1}`;
+          div.innerHTML = `
+            <h3>${member.name}</h3>
+            <a href="${member.github}" target="_blank" aria-label="${member.name}'s github account">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="${member.linkedin}" target="_blank" aria-label="${member.name}'s linkedin account">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          `;
+          footerContainer.appendChild(div);
+        });
+      </script>
+
+      <script>
+    var modalButtons = document.querySelectorAll(".modalScript");
+
+window.addEventListener("scroll", function () {
+  var scrollPosition = window.scrollY;
+  var windowHeight = window.innerHeight;
+  var documentHeight = document.body.clientHeight;
+
+  if (scrollPosition + windowHeight >= documentHeight) {
+    hideModalButtons();
+  } else {
+    showModalButtons();
+  }
+});
+
+function hideModalButtons() {
+  modalButtons.forEach(function (button) {
+    button.style.display = "none";
+  });
+}
+
+function showModalButtons() {
+  modalButtons.forEach(function (button) {
+    button.style.display = "block";
+  });
+}
+      </script>
 </body>
 
 </html>
