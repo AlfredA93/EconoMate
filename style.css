@@ -21,7 +21,7 @@ header{
     width: 97%;
     margin: auto;
     display: flex;
-    justify-content: end;
+    justify-content: center;
 }
 .heroTitle{
     background-color: var(--secondary-color);
