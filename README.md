@@ -72,10 +72,13 @@ The EconoMate was developed to encourage the positive but often overlooked pract
 
 ## Tech
 The EconoMate application uses the following technology stack and dependencies:
+- Git and GitHub
+- VS Code
 - HTML5
 - CSS3
 - JavaScript
 - ZingChart
+- FontAwesome
 
 ## How it works
 1. Enter your starting budget number
@@ -89,6 +92,9 @@ The EconoMate application uses the following technology stack and dependencies:
 In subsequent iterations of the EconoMate, users will be enabled to:
 - Create new categories for their budget allocation
 - Add expenses against budget allocation to track them in real-time
+
+## License
+This project is issued under the [MIT License](https://www.mit.edu/~amini/LICENSE.md)
 
 ## Credits
 Below are the sources used:
