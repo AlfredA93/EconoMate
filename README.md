@@ -5,6 +5,10 @@
 
 <br>
 
+<img src="/assets/responsive.png" alt="BudgetBustersResponsive" width="1200"/>
+
+<br>
+
 # Submission - EconoMate
 
 
