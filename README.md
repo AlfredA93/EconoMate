@@ -11,7 +11,7 @@
 <img src="assets/economate.png" alt="BudgetBustersBanner" width="1200"/>
 
 ## Deployment
-The project is deployed and can be accessed at [https://alfreda93.github.io/Hackathon-Calculator/](https://alfreda93.github.io/Hackathon-Calculator/).
+The project is deployed and can be accessed at [https://github.com/AlfredA93/EconoMate](https://alfreda93.github.io/Hackathon-Calculator/).
 
 ## Criteria
 In this section, we will briefly discuss how our team addressed the applicable criteria:
