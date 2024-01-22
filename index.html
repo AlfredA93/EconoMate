@@ -19,7 +19,7 @@
         <h1 class="heroTitle text-shadow">EconoMate</h1>
     </header>
     <main>
-        <button id="show-popup-button" class="currencyButton modalScript">Currency Converter</button>
+        <button id="show-popup-button" class="currencyButton modalAway">Currency Converter</button>
             <div class="currency-container containerShadow">
                 <div class="titleCurrency">
                     <button id="close-popup-button" class="closeCurrency">X</button>
@@ -186,7 +186,7 @@
             <div class="pie-chart">
                 <div id="myChart"></div>
             </div>
-            <button id="showModalButton" class="modalScript">Show Advice</button>
+            <button id="showModalButton" class="modalAway">Show Advice</button>
             <div id="myModal" class="modal">
                 <div class="modal-content">
                     <div class="advice-container  containerShadow">
@@ -205,9 +205,7 @@
     </main>
 
     <footer>
-        <div class="footer-main" id="footer-container"></div>
-      
-        
+        <div class="footer-main" id="footer-container"></div>  
       </footer>
 
     <script src="API.js"></script>
@@ -244,7 +242,7 @@
       </script>
 
       <script>
-    var modalButtons = document.querySelectorAll(".modalScript");
+    var modalButtons = document.querySelectorAll(".modalAway");
 
 window.addEventListener("scroll", function () {
   var scrollPosition = window.scrollY;
@@ -270,6 +268,7 @@ function showModalButtons() {
   });
 }
       </script>
+
 </body>
 
 </html>
